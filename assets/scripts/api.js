@@ -15,7 +15,7 @@ const signUp = function (data) {
       contentType: 'application/json'
     },
     success: function (data) {
-      store.user = data
+      store.user = data.user
       return data
     },
     data
@@ -30,7 +30,7 @@ const signIn = function (data) {
       contentType: 'application/json'
     },
     success: function (data) {
-      store.user = data
+      store.user = data.user
       console.log('data is', data)
       return data
     },
@@ -64,7 +64,7 @@ const createMenuItem = function (data) {
     method: 'POST',
     headers: {
       contentType: 'applications/json',
-      Authorization: 'Token token=' + store.user.user.token
+      Authorization: 'Token token=' + store.user.token
     },
     // success: function (data) {
     //   store.account = data.balance
@@ -80,7 +80,7 @@ const editItem = function (item) {
     method: 'PATCH',
     headers: {
       contentType: 'applications/json',
-      Authorization: 'Token token=' + store.user.user.token
+      Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
       store.account = data.balance
@@ -113,7 +113,7 @@ const deleteItem = function (item) {
     url: config.apiUrl + '/items/' + item,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.user.user.token
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
@@ -126,7 +126,7 @@ const updateMenuItem = function (data) {
     url: config.apiUrl + '/items/' + store.item,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.user.user.token
+      Authorization: 'Token token=' + store.user.token
     },
     data
   })

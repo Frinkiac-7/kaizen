@@ -31,6 +31,17 @@ const onSignInSuccess = function () {
   // resetForms()
   $('#form-signin').hide()
   $('#navbar').show()
+  if (store.user.isadmin === true) {
+    console.log('store.user is', store.user)
+    console.log('store.user.isadmin is', store.user.isadmin)
+    console.log('store.user.isadmin is type', typeof store.user.isadmin)
+    console.log('User is an admin')
+  } else {
+    console.log('store.user is', store.user)
+    console.log('store.user.isadmin is', store.user.isadmin)
+    console.log('store.user.isadmin is type', typeof store.user.isadmin)
+    console.log('User is NOT an admin')
+  }
 }
 
 const onSignInFailure = function () {
