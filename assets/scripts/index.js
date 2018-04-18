@@ -1,5 +1,9 @@
 'use strict'
 
+const ui = require('./ui')
+const api = require('./api')
+const events = require('./events')
+
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -7,5 +11,22 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  $('#form-signup').hide()
+  $('#form-signin').hide()
+  $('#form-menuitemcreate').hide()
+  $('#navbar').hide()
+  $('#btn-signup').click(ui.showSignUpForm)
+  $('#btn-signin').click(ui.showSignInForm)
+  $('#btn-signup-submit').on('submit', events.signUp)
+  $('#btn-signin-submit').on('submit', events.signIn)
+  $('#btn-menuitemedit-submit').on('click', events.updateMenuItems)
+  $('#btn-menuitemcreate-submit').on('submit', events.createMenuItem)
+  $('#navbar-menuitemsview').on('click', events.getMenuItems)
+  $('#navbar-menuitemcreate').on('click', ui.showMenuCreateItemForm)
+  $('body').on('click', '.edit', events.extractId)
+  $('body').on('click', '.delete', events.extractId)
+  $('body').on('submit', '#btn-menuitemedit-submit', events.updateMenuItem)
+  // $('.edit').on('click', function () {
+  // })
+  // $('#btn-div').hide()
 })

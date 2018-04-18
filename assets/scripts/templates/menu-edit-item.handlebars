@@ -1,0 +1,64 @@
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID#</th>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody> -->
+    <!-- {{#each items as |item|}} -->
+    <!-- <tr>
+      <td>{{item.id}}</td>
+      <td>{{item.category}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.price}}</td>
+    </tr> -->
+    <!-- {{/each}} -->
+  <!-- </tbody>
+</table>
+
+<p>{{item.id}}</p>
+<p>{{item.category}}</p>
+<p>{{item.name}}</p>
+<p>{{item.description}}</p>
+<p>{{item.price}}</p> -->
+
+<!-- Menu items edit start -->
+<!-- <div class="row" id="form-menuitemedit"> -->
+<div class="row">
+  <div class="col-xs-12 col-md-2"></div>
+  <div class="col-xs-12 col-md-8">
+    <p>{{item.id}}</p>
+    <p>{{item.name}}</p>
+    <p>{{item.description}}</p>
+    <p>{{item.price}}</p>
+    <p>{{item.category}}</p>
+  </div>
+  <div class="col-xs-12 col-md-2"></div>
+</div>
+
+<div class="col-xs-12 col-md-4"></div>
+  <div class="col-xs-12 col-md-4">
+    <h3>Edit Menu Item</h3>
+    <form id="btn-menuitemedit-submit">
+      <div class="form-group">
+        <label for="itemName">Item Name</label>
+        <input name="item[name]" type="text" class="form-control" value={{item.name}} placeholder="Name to display on menu">
+        <label for="itemDescription">Item Description</label>
+        <input name="item[description]" type="text" class="form-control" value={{item.description}} placeholder="Describe the item">
+        <label for="itemPrice">Item Price</label>
+        <input name="item[price]" type="number" step=".01" class="form-control" value={{item.price}} placeholder="Price for item">
+        <label for="itemCategory">Item Category</label>
+        <input name="item[category]" type="text" class="form-control" value={{item.category}} placeholder="Entree, appetizer, etc.">
+        <button type="submit" class="btn btn-primary"> Update </button>
+        <!-- <button type="submit" class="btn btn-primary"> Cancel </button> -->
+      </div>
+    </form>
+  </div>
+  <div class="col-xs-12 col-md-4"></div>
+</div>
+<!-- Menu items edit ends -->
