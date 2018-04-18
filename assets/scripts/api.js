@@ -87,7 +87,7 @@ const createMenuItem = function (data) {
     url: config.apiUrl + '/items',
     method: 'POST',
     headers: {
-      contentType: 'applications/json',
+      contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
     },
     // success: function (data) {
@@ -95,21 +95,6 @@ const createMenuItem = function (data) {
     //   return data
     // },
     data
-  })
-}
-
-const editItem = function (item) {
-  return $.ajax({
-    url: config.apiUrl + '/items/' + item,
-    method: 'PATCH',
-    headers: {
-      contentType: 'applications/json',
-      Authorization: 'Token token=' + store.user.token
-    },
-    success: function (data) {
-      store.account = data.balance
-      return data
-    }
   })
 }
 
@@ -131,26 +116,32 @@ const getMenuItem = function (item) {
   })
 }
 
-const deleteItem = function (item) {
+const deleteItem = function () {
   // event.preventDefault()
-  console.log('api.deleteItem: item is', item)
+  console.log('api.deleteItem: item is', store.item)
   return $.ajax({
-    url: config.apiUrl + '/items/' + item,
+    url: config.apiUrl + '/items/' + store.item,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
+    },
+    success: function (data) {
+      console.log('success thing invoked. data is', data)
+      return data
+      // return data
     }
   })
 }
 
 const updateMenuItem = function (data) {
-  console.log('api.updateMenuItem:  data is', data)
-  console.log('api.updateMenuItem:  data.id is', data.id)
-  console.log('api.updateMenuItem:  store.item is', store.item)
-  $.ajax({
+  // console.log('api.updateMenuItem:  data is', data)
+  // console.log('api.updateMenuItem:  data.id is', data.id)
+  // console.log('api.updateMenuItem:  store.item is', store.item)
+  return $.ajax({
     url: config.apiUrl + '/items/' + store.item,
     method: 'PATCH',
     headers: {
+      contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
     },
     data
@@ -165,7 +156,7 @@ module.exports = {
   changePassword,
   getMenuItems,
   createMenuItem,
-  editItem,
+  // editItem,
   getMenuItem,
   deleteItem,
   updateMenuItem

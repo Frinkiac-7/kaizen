@@ -6,6 +6,7 @@ const editItem = require('./templates/menu-edit-item.handlebars')
 
 // User-related functions
 const showSignUpForm = function () {
+  // resetForms()
   console.log('ui.showSignUpForm invoked')
   $('#form-signup').show()
   $('#btn-div').hide()
@@ -17,7 +18,7 @@ const onSignUpSuccess = function () {
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
   $('.modal-body').text('Your sign-up completed successfully.  Please log in to use Kaizen.')
-  // $('#form-signin').show()
+  $('#form-signin').show()
 }
 
 const onSignUpFailure = function () {
@@ -31,6 +32,7 @@ const onSignUpFailure = function () {
 
 const showSignInForm = function () {
   console.log('ui.showSignInForm invoked')
+  // resetForms()
   $('#form-signin').show()
   $('#btn-div').hide()
 }
@@ -60,11 +62,18 @@ const onSignOutSuccess = function () {
   console.log('signout successful')
   clearView()
   $('#navbar').hide()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Goodbye!')
+  $('.modal-body').text('You have successfully logged out.  Thank you for using Kaizen.')
   $('#btn-div').show()
 }
 
 const onSignOutFailure = function () {
   console.log('signout failed')
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Ooops!')
+  $('.modal-body').text('There was an error during your logout attempt.  Please try again.')
 }
 
 const showChangePasswordForm = function () {
@@ -102,6 +111,13 @@ const displayMenuItems = function () {
   $('#menu-itemview').append(menuItemsHtml)
 }
 
+const displayMenuItemsFailure = function () {
+  console.log('display items failed')
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Oops!')
+  $('.modal-body').text('There was an error trying to view your items.  Please try again')
+}
+
 const editItemForm = function () {
   console.log('ui.editItemForm invoked. store.oneItem is', store.oneItem)
   console.log('ui.editItemForm invoked. store.oneItem.name is', store.oneItem.name)
@@ -118,8 +134,19 @@ const editItemForm = function () {
   $('#edit-itemcategory').prop('value', store.oneItem.category)
 }
 
-const resetForms = function () {
-  $('#form-signup')[0].reset()
+const onEditItemSuccess = function () {
+  clearView()
+  console.log('onEditItemSuccess invoked')
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Success!')
+  $('.modal-body').text('Your item was successfully updated.')
+}
+
+const onEditItemFailure = function () {
+  console.log('edit item failed')
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Oops!')
+  $('.modal-body').text('There was an error trying to edit your item.  Please try again')
 }
 
 const showMenuCreateItemForm = function () {
@@ -128,9 +155,38 @@ const showMenuCreateItemForm = function () {
 }
 
 const onCreateMenuItemSuccess = function () {
+  console.log('ui.onCreateMenuItemSuccess invoked')
   clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Success!')
+  $('.modal-body').text('The new item was created successfully')
   // events.getMenuItems()
 }
+
+const onCreateMenuItemFailure = function () {
+  console.log('ui.onCreateItemFailure invoked')
+  // clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Oops!')
+  $('.modal-body').text('There was an error trying to create your item.  Please try again')
+}
+
+const onDeleteItemSuccess = function () {
+  console.log('ui.onDeleteItemSuccess invoked')
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Success!')
+  $('.modal-body').text('Your item was deleted successfully.  Please click View Menu Items to refresh')
+}
+
+const onDeleteItemFailure = function () {
+  console.log('ui.onDeleteItemFailure invoked')
+  // clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Oops!')
+  $('.modal-body').text('There was an error trying to delete your item.  Please try again')
+}
+
 // Clear all views
 const clearView = function () {
   $('#menu-itemview').hide()
@@ -140,6 +196,16 @@ const clearView = function () {
   $('#form-signin').hide()
   $('#form-changepassword').hide()
 }
+
+const resetForms = function () {
+  $('#btn-menuitemedit-submit').each(function () {
+    this.reset()
+  })
+  $('#form-signup').each(function () {
+    this.reset()
+  })
+}
+
 // Orders-related functions
 
 module.exports = {
@@ -154,10 +220,16 @@ module.exports = {
   showChangePasswordForm,
   onChangePasswordSuccess,
   onChangePasswordFailure,
-  resetForms,
   displayMenuItems,
+  displayMenuItemsFailure,
   showMenuCreateItemForm,
   editItemForm,
+  onEditItemSuccess,
+  onEditItemFailure,
   onCreateMenuItemSuccess,
-  clearView
+  onCreateMenuItemFailure,
+  onDeleteItemSuccess,
+  onDeleteItemFailure,
+  clearView,
+  resetForms
 }

@@ -76,16 +76,14 @@ const extractId = function () {
   store.item = item
   if (btn === 'edt') {
     console.log('extractId: button clicked was edit')
-    api.getMenuItem(item)
+    api.getMenuItem(store.item)
       .then(ui.editItemForm)
-      // .then(() => {
-        // console.log('store.oneItem is', store.oneItem)
-      // })
-    // api.editItem(item)
+      .catch(ui.onEditItemFailure)
   } else {
     console.log('extractId: button clicked was delete')
-    api.deleteItem(item)
-      .then(ui.deleteItemSuccess)
+    api.deleteItem()
+      .then(ui.onDeleteItemSuccess)
+      .catch(ui.onDeleteItemFailure)
   }
 }
 
@@ -94,6 +92,8 @@ const updateMenuItem = function () {
   const userForm = getFormFields(this)
   console.log('updateMenuItem: userForm is', userForm)
   api.updateMenuItem(userForm)
+    .then(ui.onEditItemSuccess)
+    .catch(ui.onEditItemFailure)
 }
 
 // Orders-related functions

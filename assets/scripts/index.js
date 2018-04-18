@@ -20,7 +20,7 @@ $(() => {
   $('#btn-signin').click(ui.showSignInForm)
   $('#btn-signup-submit').on('submit', events.signUp)
   $('#btn-signin-submit').on('submit', events.signIn)
-  $('#btn-menuitemedit-submit').on('click', events.updateMenuItems)
+  $('#btn-menuitemedit-submit').on('click', events.updateMenuItem)
   $('#btn-menuitemcreate-submit').on('submit', events.createMenuItem)
   $('#navbar-menuitemsview').on('click', events.getMenuItems)
   $('#navbar-menuitemcreate').on('click', ui.showMenuCreateItemForm)
