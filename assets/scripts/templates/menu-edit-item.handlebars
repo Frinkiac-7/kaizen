@@ -29,31 +29,19 @@
 
 <!-- Menu items edit start -->
 <!-- <div class="row" id="form-menuitemedit"> -->
-<div class="row">
-  <div class="col-xs-12 col-md-2"></div>
-  <div class="col-xs-12 col-md-8">
-    <p>{{item.id}}</p>
-    <p>{{item.name}}</p>
-    <p>{{item.description}}</p>
-    <p>{{item.price}}</p>
-    <p>{{item.category}}</p>
-  </div>
-  <div class="col-xs-12 col-md-2"></div>
-</div>
-
 <div class="col-xs-12 col-md-4"></div>
   <div class="col-xs-12 col-md-4">
     <h3>Edit Menu Item</h3>
     <form id="btn-menuitemedit-submit">
       <div class="form-group">
         <label for="itemName">Item Name</label>
-        <input name="item[name]" type="text" class="form-control" value={{item.name}} placeholder="Name to display on menu">
+        <input id="edit-itemname" name="item[name]" type="text" class="form-control itemname" placeholder="Name to display on menu">
         <label for="itemDescription">Item Description</label>
-        <input name="item[description]" type="text" class="form-control" value={{item.description}} placeholder="Describe the item">
+        <input id="edit-itemdescr" name="item[description]" type="text" class="form-control" placeholder="Describe the item">
         <label for="itemPrice">Item Price</label>
-        <input name="item[price]" type="number" step=".01" class="form-control" value={{item.price}} placeholder="Price for item">
+        <input id="edit-itemprice" name="item[price]" type="number" step=".01" class="form-control" placeholder="0.00">
         <label for="itemCategory">Item Category</label>
-        <input name="item[category]" type="text" class="form-control" value={{item.category}} placeholder="Entree, appetizer, etc.">
+        <input id="edit-itemcategory" name="item[category]" type="text" class="form-control" value={{item.category}} placeholder="Entree, appetizer, etc.">
         <button type="submit" class="btn btn-primary"> Update </button>
         <!-- <button type="submit" class="btn btn-primary"> Cancel </button> -->
       </div>

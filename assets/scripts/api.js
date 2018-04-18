@@ -23,6 +23,7 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
+  console.log('api.signIn invoked')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -121,9 +122,10 @@ const getMenuItem = function (item) {
       contentType: 'application/json'
     },
     success: function (data) {
-      store.oneItem = data
+      store.oneItem = data.item
       console.log('api.getMenuItem: store.oneItem is', store.oneItem)
-      console.log('api.getMenuItem: store.oneItem.item is', store.oneItem.item)
+      console.log('api.getMenuItem: store.oneItem.name is', store.oneItem.name)
+      console.log('data is', data)
       return data
     }
   })

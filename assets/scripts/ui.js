@@ -14,11 +14,19 @@ const showSignUpForm = function () {
 const onSignUpSuccess = function () {
   // resetForms()
   clearView()
-  $('#form_signin').show()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Success!')
+  $('.modal-body').text('Your sign-up completed successfully.  Please log in to use Kaizen.')
+  // $('#form-signin').show()
 }
 
 const onSignUpFailure = function () {
   console.log('ui.onSignUpFailure invoked')
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Ooops!')
+  $('.modal-body').text('There was an error during your sign-up.  Please try again.')
+  $('#form-signup').show()
 }
 
 const showSignInForm = function () {
@@ -28,10 +36,11 @@ const showSignInForm = function () {
 }
 
 const onSignInSuccess = function () {
-  // resetForms()
-  $('#form-signin').hide()
+  console.log('onSignInSuccess invoked')
   if (store.user.isadmin === true) {
+    // clearView()
     console.log('User is an admin')
+    clearView()
     $('#navbar').show()
   } else {
     console.log('User is NOT an admin')
@@ -40,11 +49,17 @@ const onSignInSuccess = function () {
 
 const onSignInFailure = function () {
   console.log('ui.onSignInFailure invoked')
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Ooops!')
+  $('.modal-body').text('There was an error during your login.  Please try again.')
+  $('#form-signin').show()
 }
 
 const onSignOutSuccess = function () {
   console.log('signout successful')
   clearView()
+  $('#navbar').hide()
   $('#btn-div').show()
 }
 
@@ -61,11 +76,18 @@ const showChangePasswordForm = function () {
 const onChangePasswordSuccess = function () {
   console.log('change password successful')
   clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Success!')
+  $('.modal-body').text('Your password was successfully changed')
 }
 
 const onChangePasswordFailure = function () {
   console.log('change password failed')
-  // display something to the user
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Ooops!')
+  $('.modal-body').text('There was an error attempting to change your password.  Please try again.')
+  $('#form-changepassword').show()
 }
 
 // Items-related functions
@@ -81,14 +103,19 @@ const displayMenuItems = function () {
 }
 
 const editItemForm = function () {
-  console.log('ui.editItemForm invoked. store.oneItem is', store.oneItem.item)
+  console.log('ui.editItemForm invoked. store.oneItem is', store.oneItem)
+  console.log('ui.editItemForm invoked. store.oneItem.name is', store.oneItem.name)
   $('#form-menuitemedit').empty()
-  const editItemFormHtml = editItem({ item: store.oneItem.item })
+  const editItemFormHtml = editItem({ item: store.oneItem })
   // $('#form-menuitemcreate').hide()
   clearView()
   // $('#menu-itemview').empty()
   $('#form-menuitemedit').show()
-  $('#form-menuitemedit').prepend(editItemFormHtml)
+  $('#form-menuitemedit').append(editItemFormHtml)
+  $('#edit-itemname').prop('value', store.oneItem.name)
+  $('#edit-itemdescr').prop('value', store.oneItem.description)
+  $('#edit-itemprice').prop('value', store.oneItem.price)
+  $('#edit-itemcategory').prop('value', store.oneItem.category)
 }
 
 const resetForms = function () {
@@ -100,6 +127,10 @@ const showMenuCreateItemForm = function () {
   $('#form-menuitemcreate').show()
 }
 
+const onCreateMenuItemSuccess = function () {
+  clearView()
+  // events.getMenuItems()
+}
 // Clear all views
 const clearView = function () {
   $('#menu-itemview').hide()
@@ -127,5 +158,6 @@ module.exports = {
   displayMenuItems,
   showMenuCreateItemForm,
   editItemForm,
+  onCreateMenuItemSuccess,
   clearView
 }

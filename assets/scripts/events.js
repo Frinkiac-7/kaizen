@@ -23,6 +23,7 @@ const signIn = function () {
   event.preventDefault()
   console.log('events.signIn invoked')
   const userForm = getFormFields(this)
+  console.log('userForm in signIn is', userForm)
   api.signIn(userForm)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -62,6 +63,8 @@ const createMenuItem = function (event) {
   const userForm = getFormFields(this)
   console.log('userForm is', userForm)
   api.createMenuItem(userForm)
+    .then(ui.onCreateMenuItemSuccess)
+    .catch(ui.onCreateMenuItemFailure)
 }
 
 const extractId = function () {
