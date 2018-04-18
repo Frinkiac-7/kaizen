@@ -30,6 +30,7 @@ $(() => {
   $('#btn-changepw-submit').on('submit', events.changePassword)
   $('#navbar-signout').on('click', events.signOut)
   $('body').on('click', '.edit', events.extractId)
+  $('body').on('click', '.order', events.extractId)
   $('body').on('click', '.delete', events.extractId)
   $('body').on('submit', '#btn-menuitemedit-submit', events.updateMenuItem)
   // $('.edit').on('click', function () {

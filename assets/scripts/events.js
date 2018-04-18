@@ -79,6 +79,11 @@ const extractId = function () {
     api.getMenuItem(store.item)
       .then(ui.editItemForm)
       .catch(ui.onEditItemFailure)
+  } else if (btn === 'order') {
+    console.log('extractId: button clicked was order')
+    // api.orderItem()
+    //   .then(ui.onOrderItemSuccess)
+    //   .catch(ui.onOrderItemFailure)
   } else {
     console.log('extractId: button clicked was delete')
     api.deleteItem()

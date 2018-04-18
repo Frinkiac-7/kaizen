@@ -160,7 +160,7 @@ const onEditItemFailure = function () {
   console.log('edit item failed')
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Oops!')
-  $('.modal-body').text('There was an error trying to edit your item.  Please try again')
+  $('.modal-body').text('There was an error trying to update your item.  Please try again')
 }
 
 const showMenuCreateItemForm = function () {
