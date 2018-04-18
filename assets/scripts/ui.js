@@ -2,6 +2,7 @@
 
 const store = require('./store')
 const menuItems = require('./templates/menu-items.handlebars')
+const userMenuItems = require('./templates/user-menu-items.handlebars')
 const editItem = require('./templates/menu-edit-item.handlebars')
 
 // User-related functions
@@ -46,6 +47,8 @@ const onSignInSuccess = function () {
     $('#navbar').show()
   } else {
     console.log('User is NOT an admin')
+    clearView()
+    $('#usr-navbar').show()
   }
 }
 
@@ -103,12 +106,23 @@ const onChangePasswordFailure = function () {
 
 const displayMenuItems = function () {
   console.log('displayMenuItems invoked. store value is', store.menuItems.items)
-  const menuItemsHtml = menuItems({ items: store.menuItems.items })
-  clearView()
-  $('#form-menuitemedit').empty()
-  $('#menu-itemview').show()
-  $('#menu-itemview').empty()
-  $('#menu-itemview').append(menuItemsHtml)
+  if (store.user.isadmin === true) {
+    console.log('ui.displayMenuItems: user is an admin')
+    const menuItemsHtml = menuItems({ items: store.menuItems.items })
+    clearView()
+    $('#form-menuitemedit').empty()
+    $('#menu-itemview').show()
+    $('#menu-itemview').empty()
+    $('#menu-itemview').append(menuItemsHtml)
+  } else {
+    console.log('ui.displayMenuItems: user is NOT an admin')
+    const userMenuItemsHtml = userMenuItems({ items: store.menuItems.items })
+    clearView()
+    $('#form-menuitemedit').empty()
+    $('#menu-itemview').show()
+    $('#menu-itemview').empty()
+    $('#menu-itemview').append(userMenuItemsHtml)
+  }
 }
 
 const displayMenuItemsFailure = function () {
