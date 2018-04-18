@@ -13,7 +13,7 @@ const showSignUpForm = function () {
 
 const onSignUpSuccess = function () {
   // resetForms()
-  $('#form-signup').hide()
+  clearView()
   $('#form_signin').show()
 }
 
@@ -30,16 +30,10 @@ const showSignInForm = function () {
 const onSignInSuccess = function () {
   // resetForms()
   $('#form-signin').hide()
-  $('#navbar').show()
   if (store.user.isadmin === true) {
-    console.log('store.user is', store.user)
-    console.log('store.user.isadmin is', store.user.isadmin)
-    console.log('store.user.isadmin is type', typeof store.user.isadmin)
     console.log('User is an admin')
+    $('#navbar').show()
   } else {
-    console.log('store.user is', store.user)
-    console.log('store.user.isadmin is', store.user.isadmin)
-    console.log('store.user.isadmin is type', typeof store.user.isadmin)
     console.log('User is NOT an admin')
   }
 }
@@ -48,14 +42,39 @@ const onSignInFailure = function () {
   console.log('ui.onSignInFailure invoked')
 }
 
+const onSignOutSuccess = function () {
+  console.log('signout successful')
+  clearView()
+  $('#btn-div').show()
+}
+
+const onSignOutFailure = function () {
+  console.log('signout failed')
+}
+
+const showChangePasswordForm = function () {
+  console.log('show change password form invoked')
+  clearView()
+  $('#form-changepassword').show()
+}
+
+const onChangePasswordSuccess = function () {
+  console.log('change password successful')
+  clearView()
+}
+
+const onChangePasswordFailure = function () {
+  console.log('change password failed')
+  // display something to the user
+}
+
 // Items-related functions
 
 const displayMenuItems = function () {
   console.log('displayMenuItems invoked. store value is', store.menuItems.items)
   const menuItemsHtml = menuItems({ items: store.menuItems.items })
-  $('#form-menuitemcreate').hide()
+  clearView()
   $('#form-menuitemedit').empty()
-  $('#form-menuitemedit').hide()
   $('#menu-itemview').show()
   $('#menu-itemview').empty()
   $('#menu-itemview').append(menuItemsHtml)
@@ -66,7 +85,7 @@ const editItemForm = function () {
   $('#form-menuitemedit').empty()
   const editItemFormHtml = editItem({ item: store.oneItem.item })
   // $('#form-menuitemcreate').hide()
-  $('#menu-itemview').hide()
+  clearView()
   // $('#menu-itemview').empty()
   $('#form-menuitemedit').show()
   $('#form-menuitemedit').prepend(editItemFormHtml)
@@ -77,10 +96,19 @@ const resetForms = function () {
 }
 
 const showMenuCreateItemForm = function () {
-  $('#menu-itemview').hide()
+  clearView()
   $('#form-menuitemcreate').show()
 }
 
+// Clear all views
+const clearView = function () {
+  $('#menu-itemview').hide()
+  $('#form-menuitemedit').hide()
+  $('#form-menuitemcreate').hide()
+  $('#form-signup').hide()
+  $('#form-signin').hide()
+  $('#form-changepassword').hide()
+}
 // Orders-related functions
 
 module.exports = {
@@ -90,8 +118,14 @@ module.exports = {
   showSignInForm,
   onSignInSuccess,
   onSignInFailure,
+  onSignOutSuccess,
+  onSignOutFailure,
+  showChangePasswordForm,
+  onChangePasswordSuccess,
+  onChangePasswordFailure,
   resetForms,
   displayMenuItems,
   showMenuCreateItemForm,
-  editItemForm
+  editItemForm,
+  clearView
 }

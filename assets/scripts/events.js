@@ -25,10 +25,24 @@ const signIn = function () {
   const userForm = getFormFields(this)
   api.signIn(userForm)
     .then(ui.onSignInSuccess)
-    .then(() => {
-      console.log('events.signIn: store.user.user.token is', store.user.user.token)
-    })
     .catch(ui.onSignInFailure)
+}
+
+const changePassword = function () {
+  event.preventDefault()
+  console.log('changePassword link clicked')
+  const userForm = getFormFields(this)
+  api.changePassword(userForm)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
+}
+
+const signOut = function () {
+  event.preventDefault()
+  console.log('signOut link clicked')
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
 }
 
 // Items-related functions
@@ -84,6 +98,8 @@ const updateMenuItem = function () {
 module.exports = {
   signUp,
   signIn,
+  changePassword,
+  signOut,
   getMenuItems,
   createMenuItem,
   extractId,
