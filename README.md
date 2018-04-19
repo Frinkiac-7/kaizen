@@ -55,11 +55,7 @@ The development process to date is detailed below
   - As indicated above, the client was originally going to be based on the Ember.js front-end framework.  However, the learning curve proved challenging given the project timelines.  As a result, development efforts on that version were temporarily shelved and this version was initiated.  Future versions of the client will use a front-end framework.  Currently, this is intended to be Ember.js but other frameworks will be explored as determined by future revision requirements.
   - Minimum viable product was met slightly behind schedule due to the shift from Ember.  However, development of this version was completed one day ahead of revised schedule.
 3) `Project lessons learned`
-  - 
-
-## Project Story
-
-Detail lessons learned,
+  - The main lesson from this project was the importance of defining stringent MVPs.  My previous MVPs had been based solely on meeting project technical requirements.  This worked though projects were very limited in functionality.  For this project, however, I expanded the initial MVP definition slightly to include things such as different user classes, etc.  This wasn't a problem per se but it did create additional decision forks when trying to decide on next steps during development.  However, as my projects get more complex this could become more of an issue.
 
 ## [License](LICENSE)
 
