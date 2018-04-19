@@ -16,16 +16,6 @@ Kaizen is designed to help small restaurants with limited budgets add online ord
 `Note`
 - Please visit https://github.com/Frinkiac-7/kaizen-client/ for details on the Ember version of this client currently still in Development
 
-## Features
-
--
-
-## Client components
-
-- HTML5/CSS, Sass, & Bootstrap
-- jQuery/Ajax
-- JavaScript
-
 # Kaizen Overview
 
 ## Current capabilities
@@ -37,6 +27,12 @@ Kaizen currently provides restaurant owners the ability to do the following:
     - Update and delete menu items they've created but not those created by other admins
   - Users can:
     - View menu items created by admins
+
+## Client components
+
+- HTML5/CSS, Sass, & Bootstrap
+- jQuery/Ajax
+- JavaScript
 
 ### Planned Features
 
