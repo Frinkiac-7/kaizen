@@ -104,7 +104,8 @@ const getMenuItem = function (item) {
     url: config.apiUrl + '/items/' + item,
     method: 'GET',
     headers: {
-      contentType: 'application/json'
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
       store.oneItem = data.item
