@@ -4,7 +4,7 @@
 
 Kaizen is designed to help small restaurants with limited budgets add online ordering services to their customers.  This repo contains the front-end app code.  The client uses a back-end API built using Ruby on Rails.
 
-## Deployment and repository links
+## Deployment/repository links and installation instructions
 `Client`
 - Deployed link:  https://frinkiac-7.github.io/kaizen/
 - Repository link:https://github.com/Frinkiac-7/kaizen/
@@ -15,6 +15,11 @@ Kaizen is designed to help small restaurants with limited budgets add online ord
 
 `Note`
 - Please visit https://github.com/Frinkiac-7/kaizen-client/ for details on the Ember version of this client currently still in Development
+
+`Installation `
+- Fork and clone this repository
+- Check directory to the project directory
+- run `npm install`
 
 # Kaizen Overview
 
