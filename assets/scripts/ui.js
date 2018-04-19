@@ -7,14 +7,13 @@ const editItem = require('./templates/menu-edit-item.handlebars')
 
 // User-related functions
 const showSignUpForm = function () {
-  // resetForms()
-  console.log('ui.showSignUpForm invoked')
+  //console.log('ui.showSignUpForm invoked')
   $('#form-signup').show()
   $('#btn-div').hide()
 }
 
 const onSignUpSuccess = function () {
-  // resetForms()
+  $('#form-signup :input').prop('value', '')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
@@ -23,7 +22,8 @@ const onSignUpSuccess = function () {
 }
 
 const onSignUpFailure = function () {
-  console.log('ui.onSignUpFailure invoked')
+  //console.log('ui.onSignUpFailure invoked')
+  $('#form-signup :input').prop('value', '')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Ooops!')
@@ -32,28 +32,29 @@ const onSignUpFailure = function () {
 }
 
 const showSignInForm = function () {
-  console.log('ui.showSignInForm invoked')
-  // resetForms()
+  //console.log('ui.showSignInForm invoked')
   $('#form-signin').show()
   $('#btn-div').hide()
 }
 
 const onSignInSuccess = function () {
-  console.log('onSignInSuccess invoked')
+  //console.log('onSignInSuccess invoked')
+  $('#form-signin :input').prop('value', '')
   if (store.user.isadmin === true) {
     // clearView()
-    console.log('User is an admin')
+    //console.log('User is an admin')
     clearView()
     $('#navbar').show()
   } else {
-    console.log('User is NOT an admin')
+    //console.log('User is NOT an admin')
     clearView()
     $('#usr-navbar').show()
   }
 }
 
 const onSignInFailure = function () {
-  console.log('ui.onSignInFailure invoked')
+  //console.log('ui.onSignInFailure invoked')
+  $('#form-signin :input').prop('value', '')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Ooops!')
@@ -62,7 +63,7 @@ const onSignInFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  console.log('signout successful')
+  //console.log('signout successful')
   clearView()
   $('#navbar').hide()
   $('#usr-navbar').hide()
@@ -73,7 +74,7 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutFailure = function () {
-  console.log('signout failed')
+  //console.log('signout failed')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Ooops!')
@@ -81,13 +82,14 @@ const onSignOutFailure = function () {
 }
 
 const showChangePasswordForm = function () {
-  console.log('show change password form invoked')
+  //console.log('show change password form invoked')
   clearView()
   $('#form-changepassword').show()
 }
 
 const onChangePasswordSuccess = function () {
-  console.log('change password successful')
+  //console.log('change password successful')
+  $('#form-changepassword :input').prop('value', '')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
@@ -95,7 +97,8 @@ const onChangePasswordSuccess = function () {
 }
 
 const onChangePasswordFailure = function () {
-  console.log('change password failed')
+  //console.log('change password failed')
+  $('#form-changepassword :input').prop('value', '')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Ooops!')
@@ -106,9 +109,9 @@ const onChangePasswordFailure = function () {
 // Items-related functions
 
 const displayMenuItems = function () {
-  console.log('displayMenuItems invoked. store value is', store.menuItems.items)
+  //console.log('displayMenuItems invoked. store value is', store.menuItems.items)
   if (store.user.isadmin === true) {
-    console.log('ui.displayMenuItems: user is an admin')
+    //console.log('ui.displayMenuItems: user is an admin')
     const menuItemsHtml = menuItems({ items: store.menuItems.items })
     clearView()
     $('#form-menuitemedit').empty()
@@ -116,7 +119,7 @@ const displayMenuItems = function () {
     $('#menu-itemview').empty()
     $('#menu-itemview').append(menuItemsHtml)
   } else {
-    console.log('ui.displayMenuItems: user is NOT an admin')
+    //console.log('ui.displayMenuItems: user is NOT an admin')
     const userMenuItemsHtml = userMenuItems({ items: store.menuItems.items })
     clearView()
     $('#form-menuitemedit').empty()
@@ -127,20 +130,21 @@ const displayMenuItems = function () {
 }
 
 const displayMenuItemsFailure = function () {
-  console.log('display items failed')
+  //console.log('display items failed')
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Oops!')
   $('.modal-body').text('There was an error trying to view your items.  Please try again')
 }
 
 const editItemForm = function () {
-  console.log('ui.editItemForm invoked. store.oneItem is', store.oneItem)
-  console.log('ui.editItemForm invoked. store.oneItem.name is', store.oneItem.name)
+  //console.log('ui.editItemForm invoked. store.oneItem is', store.oneItem)
+  //console.log('ui.editItemForm invoked. store.oneItem.name is', store.oneItem.name)
   $('#form-menuitemedit').empty()
   const editItemFormHtml = editItem({ item: store.oneItem })
   // $('#form-menuitemcreate').hide()
   clearView()
   // $('#menu-itemview').empty()
+  $('#form-menuitemedit :input').prop('value', '')
   $('#form-menuitemedit').show()
   $('#form-menuitemedit').append(editItemFormHtml)
   $('#edit-itemname').prop('value', store.oneItem.name)
@@ -151,14 +155,14 @@ const editItemForm = function () {
 
 const onEditItemSuccess = function () {
   clearView()
-  console.log('onEditItemSuccess invoked')
+  //console.log('onEditItemSuccess invoked')
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
   $('.modal-body').text('Your item was successfully updated.')
 }
 
 const onEditItemFailure = function () {
-  console.log('edit item failed')
+  //console.log('edit item failed')
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Oops!')
   $('.modal-body').text('There was an error trying to update your item.  Please try again')
@@ -170,7 +174,8 @@ const showMenuCreateItemForm = function () {
 }
 
 const onCreateMenuItemSuccess = function () {
-  console.log('ui.onCreateMenuItemSuccess invoked')
+  //console.log('ui.onCreateMenuItemSuccess invoked')
+  $('#form-menuitemcreate :input').prop('value', '')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
@@ -179,7 +184,7 @@ const onCreateMenuItemSuccess = function () {
 }
 
 const onCreateMenuItemFailure = function () {
-  console.log('ui.onCreateItemFailure invoked')
+  //console.log('ui.onCreateItemFailure invoked')
   // clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Oops!')
@@ -187,7 +192,7 @@ const onCreateMenuItemFailure = function () {
 }
 
 const onDeleteItemSuccess = function () {
-  console.log('ui.onDeleteItemSuccess invoked')
+  //console.log('ui.onDeleteItemSuccess invoked')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
@@ -195,7 +200,7 @@ const onDeleteItemSuccess = function () {
 }
 
 const onDeleteItemFailure = function () {
-  console.log('ui.onDeleteItemFailure invoked')
+  //console.log('ui.onDeleteItemFailure invoked')
   // clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Oops!')
@@ -210,15 +215,6 @@ const clearView = function () {
   $('#form-signup').hide()
   $('#form-signin').hide()
   $('#form-changepassword').hide()
-}
-
-const resetForms = function () {
-  $('#btn-menuitemedit-submit').each(function () {
-    this.reset()
-  })
-  $('#form-signup').each(function () {
-    this.reset()
-  })
 }
 
 // Orders-related functions
@@ -245,6 +241,5 @@ module.exports = {
   onCreateMenuItemFailure,
   onDeleteItemSuccess,
   onDeleteItemFailure,
-  clearView,
-  resetForms
+  clearView
 }
