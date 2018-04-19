@@ -1,7 +1,6 @@
 'use strict'
 
 const ui = require('./ui')
-const api = require('./api')
 const events = require('./events')
 
 // use require with a reference to bundle the file and use it in this file
@@ -27,8 +26,10 @@ $(() => {
   $('#usr-navbar-menuitemsview').on('click', events.getMenuItems)
   $('#navbar-menuitemcreate').on('click', ui.showMenuCreateItemForm)
   $('#navbar-changepassword').on('click', ui.showChangePasswordForm)
+  $('#usr-navbar-changepassword').on('click', ui.showChangePasswordForm)
   $('#btn-changepw-submit').on('submit', events.changePassword)
   $('#navbar-signout').on('click', events.signOut)
+  $('#usr-navbar-signout').on('click', events.signOut)
   $('body').on('click', '.edit', events.extractId)
   $('body').on('click', '.order', events.extractId)
   $('body').on('click', '.delete', events.extractId)
