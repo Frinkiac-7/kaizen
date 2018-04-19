@@ -119,7 +119,7 @@ const getMenuItem = function (item) {
 
 const deleteItem = function () {
   // event.preventDefault()
-  //console.log('api.deleteItem: item is', store.item)
+  console.log('api.deleteItem: item is', store.item)
   return $.ajax({
     url: config.apiUrl + '/items/' + store.item,
     method: 'DELETE',
@@ -168,6 +168,24 @@ const getAllUsers = function () {
   })
 }
 
+const getUserInfo = function (item) {
+  return $.ajax({
+    url: config.apiUrl + '/users/' + item,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    success: function (data) {
+      console.log('data is', data)
+      console.log('user admin access status is', store.user.isadmin)
+      store.oneUser = data.user
+      console.log('store.oneUser is', store.oneUser)
+      return data
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -179,5 +197,6 @@ module.exports = {
   getMenuItem,
   deleteItem,
   updateMenuItem,
-  getAllUsers
+  getAllUsers,
+  getUserInfo
 }

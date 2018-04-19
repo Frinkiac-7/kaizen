@@ -79,16 +79,23 @@ const extractId = function () {
     api.getMenuItem(store.item)
       .then(ui.editItemForm)
       .catch(ui.onEditItemFailure)
+  } else if (btn === 'del') {
+    console.log('extractId: button clicked was', btn)
+    api.deleteItem()
+      .then(ui.onDeleteItemSuccess)
+      .catch(ui.onDeleteItemFailure)
   } else if (btn === 'order') {
     //console.log('extractId: button clicked was order')
     // api.orderItem()
     //   .then(ui.onOrderItemSuccess)
     //   .catch(ui.onOrderItemFailure)
-  } else {
-    //console.log('extractId: button clicked was delete')
-    api.deleteItem()
-      .then(ui.onDeleteItemSuccess)
-      .catch(ui.onDeleteItemFailure)
+  } else if (btn === 'usredt') {
+    console.log('extractId: button clicked was', btn)
+    api.getUserInfo(store.item)
+      .then(ui.userEditForm)
+      // .catch(ui.userEditFailure)
+  } else if (btn === 'usrdel') {
+    console.log('extractId: button clicked was', btn)
   }
 }
 
@@ -109,6 +116,7 @@ const viewUsers = function () {
   console.log('events.viewUsers invoked:')
   api.getAllUsers()
     .then(ui.displayAllUsers)
+    .catch(ui.displayAllUsersFailure)
 }
 
 module.exports = {

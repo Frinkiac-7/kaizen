@@ -3,8 +3,9 @@
 const store = require('./store')
 const menuItems = require('./templates/menu-items.handlebars')
 const userMenuItems = require('./templates/user-menu-items.handlebars')
-const viewAllUsers = require('./templates/users-view.handlebars')
 const editItem = require('./templates/menu-edit-item.handlebars')
+const viewAllUsers = require('./templates/users-view.handlebars')
+const editUser = require('./templates/user-edit-acct.handlebars')
 
 // User-related functions
 const showSignUpForm = function () {
@@ -216,6 +217,7 @@ const clearView = function () {
   $('#form-signup').hide()
   $('#form-signin').hide()
   $('#form-changepassword').hide()
+  $('#users-viewall').hide()
 }
 
 // Orders-related functions
@@ -229,10 +231,34 @@ const displayAllUsers = function () {
     const allUsersHtml = viewAllUsers({ users: store.allUsers })
     clearView()
     $('#users-viewall').empty()
+    $('#users-viewall').show()
     $('#users-viewall').append(allUsersHtml)
   } else {
-    console.log('not authorized to view all users')
+    // console.log('not authorized to view all users')
+    $('#modal-notification').modal('toggle')
+    $('.modal-title').text('Oops!')
+    $('.modal-body').text('You are not authorized to view users.')
   }
+}
+
+const displayAllUsersFailure = function () {
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Oops!')
+  $('.modal-body').text('There was an error.  Please try again.')
+}
+
+const userEditForm = function () {
+  console.log('display userEditForm')
+  $('#form-menuitemedit').empty()
+  const userEditFormHtml = editUser({ item: store.oneUser })
+  // $('#form-menuitemcreate').hide()
+  clearView()
+  // $('#menu-itemview').empty()
+  $('#form-useredit :input').prop('value', '')
+  $('#form-useredit').show()
+  $('#form-useredit').append(userEditFormHtml)
+  $('#edit-useremail').prop('value', store.oneUser.email)
+  $('#edit-userisadmin').prop('value', store.oneUser.isadmin)
 }
 
 module.exports = {
@@ -258,5 +284,7 @@ module.exports = {
   onDeleteItemSuccess,
   onDeleteItemFailure,
   displayAllUsers,
+  displayAllUsersFailure,
+  userEditForm,
   clearView
 }
