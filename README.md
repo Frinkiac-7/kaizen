@@ -40,11 +40,13 @@ Kaizen currently provides restaurant owners the ability to do the following:
 - jQuery/Ajax
 - JavaScript
 
-### Planned Features
+### Issues and Planned Features
 
-- `Feature: Order placement`: Allow users to add menu items to an order and have it dispatched to the restaurant admins for processing as well as be able to view previous orders.
-- `Feature: Admin reports`: Allow restaurant admins to run pre-existing reports on metrics such as total monthly sales, most/least popular menu items, top users by order volume, etc.
-- `Feature: Delivery area`: Allow restaurants offering delivery services to provide users with a map displaying the restaurants delivery area and informing them if they're eligible to place a delivery order.
+- `Issue - Improve the view state changes`: Currently, actions return to a default view and require the user to use the navbar in order to return to where they were prior to the action.  This should be addressed and improved.
+- `Feature - Order placement`: Allow users to add menu items to an order and have it dispatched to the restaurant admins for processing as well as be able to view previous orders.
+- `Feature - Enhanced notifications`: The app only provides generic success or failure messages.  The user experience would be better if they provided more error/success specific information to the user. 
+- `Feature - Admin reports`: Allow restaurant admins to run pre-existing reports on metrics such as total monthly sales, most/least popular menu items, top users by order volume, etc.
+- `Feature - Delivery area`: Allow restaurants offering delivery services to provide users with a map displaying the restaurants delivery area and informing them if they're eligible to place a delivery order.
 
 ## Project Documentation & Development Process
 
