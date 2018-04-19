@@ -259,7 +259,7 @@ const onUpdateUserSuccess = function () {
 }
 
 const onUpdateUserFailure = function () {
-  console.log('onUpdateUserSuccess invoked:')
+  console.log('onUpdateUserFailure invoked:')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Ooops!')
@@ -277,6 +277,14 @@ const clearView = function () {
   $('#form-useredit').hide()
   $('#users-viewall').hide()
   $('#users-editUser').hide()
+}
+
+const orderStatusUpdate = function () {
+  console.log('orderStatusUpdate invoked:')
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Success!')
+  $('.modal-body').text('Your order has been processed!!  Nah...just kidding...this feature is still in development.  Maybe don\'t be so anti-social and go out eat for now? ;)')
 }
 
 module.exports = {
@@ -306,5 +314,6 @@ module.exports = {
   userEditForm,
   onUpdateUserSuccess,
   onUpdateUserFailure,
+  orderStatusUpdate,
   clearView
 }

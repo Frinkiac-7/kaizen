@@ -86,7 +86,8 @@ const extractId = function () {
       .then(ui.onDeleteItemSuccess)
       .catch(ui.onDeleteItemFailure)
   } else if (btn === 'order') {
-    //console.log('extractId: button clicked was order')
+    console.log('extractId: button clicked was order')
+    ui.orderStatusUpdate()
     // api.orderItem()
     //   .then(ui.onOrderItemSuccess)
     //   .catch(ui.onOrderItemFailure)

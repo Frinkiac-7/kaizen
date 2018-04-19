@@ -41,6 +41,7 @@ $(() => {
     console.log('createusers click worked')
   })
   $('body').on('submit', '#btn-useredit-submit', events.updateUser)
+  $('body').on('submit', '.order', events.updateUser)
   // $('#btn-useredit-submit').on('click', events.updateUser)
   // $('.edit').on('click', function () {
   // })
