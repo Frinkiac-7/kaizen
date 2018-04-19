@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Edit User</th>
+      <th>Delete User</th>
+      <th>ID#</th>
+      <th>Email</th>
+      <th>Admin Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users as |user|}}
+    <tr>
+      <td><button id="{{user.id}}-usredt" class="btn btn-primary edit">Edit</button></td>
+      <td><button id="{{user.id}}-usrdel" class="btn btn-danger delete">Delete</button></td>
+      <td>{{user.id}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.isadmin}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

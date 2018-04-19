@@ -3,6 +3,7 @@
 const store = require('./store')
 const menuItems = require('./templates/menu-items.handlebars')
 const userMenuItems = require('./templates/user-menu-items.handlebars')
+const viewAllUsers = require('./templates/users-view.handlebars')
 const editItem = require('./templates/menu-edit-item.handlebars')
 
 // User-related functions
@@ -109,7 +110,7 @@ const onChangePasswordFailure = function () {
 // Items-related functions
 
 const displayMenuItems = function () {
-  //console.log('displayMenuItems invoked. store value is', store.menuItems.items)
+  console.log('displayMenuItems invoked. store value is', store.menuItems.items)
   if (store.user.isadmin === true) {
     //console.log('ui.displayMenuItems: user is an admin')
     const menuItemsHtml = menuItems({ items: store.menuItems.items })
@@ -219,6 +220,21 @@ const clearView = function () {
 
 // Orders-related functions
 
+// User-related functions
+
+const displayAllUsers = function () {
+  console.log('store.allUsers is', store.allUsers)
+  if (store.user.isadmin === true) {
+    console.log('store.user.isadmin is', store.user.isadmin)
+    const allUsersHtml = viewAllUsers({ users: store.allUsers })
+    clearView()
+    $('#users-viewall').empty()
+    $('#users-viewall').append(allUsersHtml)
+  } else {
+    console.log('not authorized to view all users')
+  }
+}
+
 module.exports = {
   showSignUpForm,
   onSignUpSuccess,
@@ -241,5 +257,6 @@ module.exports = {
   onCreateMenuItemFailure,
   onDeleteItemSuccess,
   onDeleteItemFailure,
+  displayAllUsers,
   clearView
 }

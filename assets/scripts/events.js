@@ -103,6 +103,14 @@ const updateMenuItem = function () {
 
 // Orders-related functions
 
+// User management functions
+
+const viewUsers = function () {
+  console.log('events.viewUsers invoked:')
+  api.getAllUsers()
+    .then(ui.displayAllUsers)
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -111,5 +119,6 @@ module.exports = {
   getMenuItems,
   createMenuItem,
   extractId,
-  updateMenuItem
+  updateMenuItem,
+  viewUsers
 }

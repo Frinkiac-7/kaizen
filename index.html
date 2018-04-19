@@ -30,16 +30,20 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li id="navbar-menuitemsview" class="active"><a href="#"> View Menu Items <span class="sr-only">(current)</span></a></li>
-              <li id="navbar-menuitemcreate"><a href="#"> Create Item </a></li>
-              <!-- <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Reports <span class="caret"></span></a>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Menu Mgmt <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"> Top Users </a></li>
-                  <li><a href="#"> Best Sellers </a></li>
-                  <li><a href="#"> Total Sales </a></li>
+                  <li id="navbar-menuitemsview"><a href="#"> View/Edit Items </a></li>
+                  <li id="navbar-menuitemcreate"><a href="#"> Create Items </a></li>
                 </ul>
-              </li> -->
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> User Mgmt <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li id="navbar-viewusers"><a href="#"> View/Edit Users </a></li>
+                  <li id="navbar-createusers"><a href="#"> Create User </a></li>
+                </ul>
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li id="navbar-changepassword"><a href="#"> Change Password </a></li>
@@ -196,6 +200,11 @@
       <div class="row" id="form-menuitemedit">
       </div>
       <!-- Menu item edit ends -->
+
+      <!-- View all users start -->
+      <div  id="users-viewall" class="table">
+      </div>
+      <!-- View all users ends -->
 
       <!-- Notification modal starts -->
       <div id="modal-notification" class="modal fade" tabindex="-1" role="dialog">

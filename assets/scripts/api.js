@@ -150,6 +150,24 @@ const updateMenuItem = function (data) {
 }
 
 // Orders-related functions
+
+// User-related functions
+const getAllUsers = function () {
+  return $.ajax({
+    url: config.apiUrl + '/users',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    success: function (data) {
+      console.log('data is', data)
+      store.allUsers = data.users
+      return data
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -160,5 +178,6 @@ module.exports = {
   // editItem,
   getMenuItem,
   deleteItem,
-  updateMenuItem
+  updateMenuItem,
+  getAllUsers
 }

@@ -34,6 +34,12 @@ $(() => {
   $('body').on('click', '.order', events.extractId)
   $('body').on('click', '.delete', events.extractId)
   $('body').on('submit', '#btn-menuitemedit-submit', events.updateMenuItem)
+  $('body').on('click', '.usredt', events.extractId)
+  $('body').on('click', '.usrdel', events.extractId)
+  $('#navbar-viewusers').on('click', events.viewUsers)
+  $('#navbar-createusers').on('click', () => {
+    console.log('createusers click worked')
+  })
   // $('.edit').on('click', function () {
   // })
   // $('#btn-div').hide()
