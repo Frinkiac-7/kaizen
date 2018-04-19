@@ -30,6 +30,7 @@ Kaizen currently provides restaurant owners the ability to do the following:
   - Admin users can:
     - Create menu items visible by all admins and users
     - Update and delete menu items they've created but not those created by other admins
+    - Change a user's email address and admin status
   - Users can:
     - View menu items created by admins
 
