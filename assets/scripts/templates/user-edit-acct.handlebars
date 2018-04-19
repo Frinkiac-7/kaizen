@@ -8,7 +8,11 @@
         <label for="userEmail"> Email Address </label>
         <input id="edit-useremail" name="user[email]" type="email" class="form-control itemname" placeholder="user@place.com">
         <label for="adminStatus"> Admin Status </label>
-        <input id="edit-userisadmin" name="user[isadmin]" type="text" class="form-control" placeholder="true or false">
+        <!-- <input id="edit-userisadmin" name="user[isadmin]" type="text" class="form-control" placeholder="true or false"> -->
+        <select id="edit-userisadmin" name="user[isadmin]" class="form-control">
+            <option value="false">False</option>
+            <option value="true">True</option>
+        </select>
         <button type="submit" class="btn btn-primary"> Update </button>
         <!-- <button type="submit" class="btn btn-primary"> Cancel </button> -->
       </div>
