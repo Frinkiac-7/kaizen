@@ -186,6 +186,21 @@ const getUserInfo = function (item) {
   })
 }
 
+const updateUser = function (data) {
+  console.log('api.updateUser:  data is', data)
+  console.log('api.updateUser:  data.id is', data.id)
+  console.log('api.updateUser:  store.id is', store.id)
+  return $.ajax({
+    url: config.apiUrl + '/users/' + store.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -198,5 +213,6 @@ module.exports = {
   deleteItem,
   updateMenuItem,
   getAllUsers,
-  getUserInfo
+  getUserInfo,
+  updateUser
 }

@@ -209,17 +209,6 @@ const onDeleteItemFailure = function () {
   $('.modal-body').text('There was an error trying to delete your item.  Please try again')
 }
 
-// Clear all views
-const clearView = function () {
-  $('#menu-itemview').hide()
-  $('#form-menuitemedit').hide()
-  $('#form-menuitemcreate').hide()
-  $('#form-signup').hide()
-  $('#form-signin').hide()
-  $('#form-changepassword').hide()
-  $('#users-viewall').hide()
-}
-
 // Orders-related functions
 
 // User-related functions
@@ -249,7 +238,7 @@ const displayAllUsersFailure = function () {
 
 const userEditForm = function () {
   console.log('display userEditForm')
-  $('#form-menuitemedit').empty()
+  $('#form-useredit').empty()
   const userEditFormHtml = editUser({ item: store.oneUser })
   // $('#form-menuitemcreate').hide()
   clearView()
@@ -259,6 +248,35 @@ const userEditForm = function () {
   $('#form-useredit').append(userEditFormHtml)
   $('#edit-useremail').prop('value', store.oneUser.email)
   $('#edit-userisadmin').prop('value', store.oneUser.isadmin)
+}
+
+const onUpdateUserSuccess = function () {
+  console.log('onUpdateUserSuccess invoked:')
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Success!')
+  $('.modal-body').text('The user was updated successfully.  Please click on View/Edit Users in the User Mgmt dropdown to refresh')
+}
+
+const onUpdateUserFailure = function () {
+  console.log('onUpdateUserSuccess invoked:')
+  clearView()
+  $('#modal-notification').modal('toggle')
+  $('.modal-title').text('Ooops!')
+  $('.modal-body').text('An error occurred while updating the user.  Please try again.')
+}
+
+// Clear all views
+const clearView = function () {
+  $('#menu-itemview').hide()
+  $('#form-menuitemedit').hide()
+  $('#form-menuitemcreate').hide()
+  $('#form-signup').hide()
+  $('#form-signin').hide()
+  $('#form-changepassword').hide()
+  $('#form-useredit').hide()
+  $('#users-viewall').hide()
+  $('#users-editUser').hide()
 }
 
 module.exports = {
@@ -286,5 +304,7 @@ module.exports = {
   displayAllUsers,
   displayAllUsersFailure,
   userEditForm,
+  onUpdateUserSuccess,
+  onUpdateUserFailure,
   clearView
 }

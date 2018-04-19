@@ -40,6 +40,8 @@ $(() => {
   $('#navbar-createusers').on('click', () => {
     console.log('createusers click worked')
   })
+  $('body').on('submit', '#btn-useredit-submit', events.updateUser)
+  // $('#btn-useredit-submit').on('click', events.updateUser)
   // $('.edit').on('click', function () {
   // })
   // $('#btn-div').hide()

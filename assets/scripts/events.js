@@ -68,6 +68,7 @@ const createMenuItem = function (event) {
 }
 
 const extractId = function () {
+  event.preventDefault()
   const element = this.id
   const id = element.split('-')
   const item = id[0]
@@ -90,8 +91,9 @@ const extractId = function () {
     //   .then(ui.onOrderItemSuccess)
     //   .catch(ui.onOrderItemFailure)
   } else if (btn === 'usredt') {
+    store.id = item
     console.log('extractId: button clicked was', btn)
-    api.getUserInfo(store.item)
+    api.getUserInfo(store.id)
       .then(ui.userEditForm)
       // .catch(ui.userEditFailure)
   } else if (btn === 'usrdel') {
@@ -113,10 +115,21 @@ const updateMenuItem = function () {
 // User management functions
 
 const viewUsers = function () {
+  event.preventDefault()
   console.log('events.viewUsers invoked:')
   api.getAllUsers()
     .then(ui.displayAllUsers)
     .catch(ui.displayAllUsersFailure)
+}
+
+const updateUser = function (event) {
+  event.preventDefault()
+  console.log('submit user update')
+  const userForm = getFormFields(this)
+  console.log('updateUser: userForm is', userForm)
+  api.updateUser(userForm)
+    .then(ui.onUpdateUserSuccess)
+    .catch(ui.onUpdateUserFailure)
 }
 
 module.exports = {
@@ -128,5 +141,6 @@ module.exports = {
   createMenuItem,
   extractId,
   updateMenuItem,
-  viewUsers
+  viewUsers,
+  updateUser
 }
