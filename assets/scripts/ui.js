@@ -47,10 +47,11 @@ const showSignUpForm = function () {
 const onSignUpSuccess = function () {
   $('#form-signup :input').prop('value', '')
   clearView()
+  $('#def-navbar').show()
+  $('#form-signin').show()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
   $('.modal-body').text('Your sign-up completed successfully.  Please log in to use Kaizen.')
-  $('#form-signin').show()
 }
 
 const onSignUpFailure = function () {
