@@ -73,7 +73,9 @@ const getMenuItems = function () {
       contentType: 'application/json'
     },
     success: function (data) {
+     //console.log('inside success thingy of getMenuItems: data is', data)
       store.menuItems = data
+     //console.log('inside success thingy of getMenuItems: store.menuItems is', store.menuItems)
       return data
     }
   })
@@ -119,7 +121,7 @@ const getMenuItem = function (item) {
 
 const deleteItem = function () {
   // event.preventDefault()
-  console.log('api.deleteItem: item is', store.item)
+ //console.log('api.deleteItem: item is', store.item)
   return $.ajax({
     url: config.apiUrl + '/items/' + store.item,
     method: 'DELETE',
@@ -161,7 +163,7 @@ const getAllUsers = function () {
       Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
-      console.log('data is', data)
+     //console.log('data is', data)
       store.allUsers = data.users
       return data
     }
@@ -177,19 +179,19 @@ const getUserInfo = function (item) {
       Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
-      console.log('data is', data)
-      console.log('user admin access status is', store.user.isadmin)
+     //console.log('data is', data)
+     //console.log('user admin access status is', store.user.isadmin)
       store.oneUser = data.user
-      console.log('store.oneUser is', store.oneUser)
+     //console.log('store.oneUser is', store.oneUser)
       return data
     }
   })
 }
 
 const updateUser = function (data) {
-  console.log('api.updateUser:  data is', data)
-  console.log('api.updateUser:  data.id is', data.id)
-  console.log('api.updateUser:  store.id is', store.id)
+ //console.log('api.updateUser:  data is', data)
+ //console.log('api.updateUser:  data.id is', data.id)
+ //console.log('api.updateUser:  store.id is', store.id)
   return $.ajax({
     url: config.apiUrl + '/users/' + store.id,
     method: 'PATCH',

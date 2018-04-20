@@ -81,24 +81,24 @@ const extractId = function () {
       .then(ui.editItemForm)
       .catch(ui.onEditItemFailure)
   } else if (btn === 'del') {
-    console.log('extractId: button clicked was', btn)
+   //console.log('extractId: button clicked was', btn)
     api.deleteItem()
       .then(ui.onDeleteItemSuccess)
       .catch(ui.onDeleteItemFailure)
   } else if (btn === 'order') {
-    console.log('extractId: button clicked was order')
+   //console.log('extractId: button clicked was order')
     ui.orderStatusUpdate()
     // api.orderItem()
     //   .then(ui.onOrderItemSuccess)
     //   .catch(ui.onOrderItemFailure)
   } else if (btn === 'usredt') {
     store.id = item
-    console.log('extractId: button clicked was', btn)
+   //console.log('extractId: button clicked was', btn)
     api.getUserInfo(store.id)
       .then(ui.userEditForm)
       // .catch(ui.userEditFailure)
   } else if (btn === 'usrdel') {
-    console.log('extractId: button clicked was', btn)
+   //console.log('extractId: button clicked was', btn)
   }
 }
 
@@ -117,7 +117,7 @@ const updateMenuItem = function () {
 
 const viewUsers = function () {
   event.preventDefault()
-  console.log('events.viewUsers invoked:')
+ //console.log('events.viewUsers invoked:')
   api.getAllUsers()
     .then(ui.displayAllUsers)
     .catch(ui.displayAllUsersFailure)
@@ -125,9 +125,9 @@ const viewUsers = function () {
 
 const updateUser = function (event) {
   event.preventDefault()
-  console.log('submit user update')
+ //console.log('submit user update')
   const userForm = getFormFields(this)
-  console.log('updateUser: userForm is', userForm)
+ //console.log('updateUser: userForm is', userForm)
   api.updateUser(userForm)
     .then(ui.onUpdateUserSuccess)
     .catch(ui.onUpdateUserFailure)

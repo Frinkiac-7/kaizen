@@ -8,9 +8,19 @@ const viewAllUsers = require('./templates/users-view.handlebars')
 const editUser = require('./templates/user-edit-acct.handlebars')
 
 // User-related functions
+
+const showHomeScreen = function () {
+ //console.log('ui.showHomeScreen invoked:')
+  clearView()
+  $('#form-signin').hide()
+  $('#form-signup').hide()
+  $('#btn-div').show()
+}
+
 const showSignUpForm = function () {
   //console.log('ui.showSignUpForm invoked')
   $('#form-signup').show()
+  $('#form-signin').hide()
   $('#btn-div').hide()
 }
 
@@ -35,6 +45,7 @@ const onSignUpFailure = function () {
 
 const showSignInForm = function () {
   //console.log('ui.showSignInForm invoked')
+  $('#form-signup').hide()
   $('#form-signin').show()
   $('#btn-div').hide()
 }
@@ -111,7 +122,7 @@ const onChangePasswordFailure = function () {
 // Items-related functions
 
 const displayMenuItems = function () {
-  console.log('displayMenuItems invoked. store value is', store.menuItems.items)
+  // console.log('displayMenuItems invoked. store value is', store.menuItems.items)
   if (store.user.isadmin === true) {
     //console.log('ui.displayMenuItems: user is an admin')
     const menuItemsHtml = menuItems({ items: store.menuItems.items })
@@ -167,7 +178,7 @@ const onEditItemFailure = function () {
   //console.log('edit item failed')
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Oops!')
-  $('.modal-body').text('There was an error trying to update your item.  Please try again')
+  $('.modal-body').text('You can\'t modify this item as it was created by another admin.')
 }
 
 const showMenuCreateItemForm = function () {
@@ -206,7 +217,7 @@ const onDeleteItemFailure = function () {
   // clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Oops!')
-  $('.modal-body').text('There was an error trying to delete your item.  Please try again')
+  $('.modal-body').text('You can\'t delete this item as it was created by another admin.')
 }
 
 // Orders-related functions
@@ -214,16 +225,16 @@ const onDeleteItemFailure = function () {
 // User-related functions
 
 const displayAllUsers = function () {
-  console.log('store.allUsers is', store.allUsers)
+ //console.log('store.allUsers is', store.allUsers)
   if (store.user.isadmin === true) {
-    console.log('store.user.isadmin is', store.user.isadmin)
+   //console.log('store.user.isadmin is', store.user.isadmin)
     const allUsersHtml = viewAllUsers({ users: store.allUsers })
     clearView()
     $('#users-viewall').empty()
     $('#users-viewall').show()
     $('#users-viewall').append(allUsersHtml)
   } else {
-    // console.log('not authorized to view all users')
+    //console.log('not authorized to view all users')
     $('#modal-notification').modal('toggle')
     $('.modal-title').text('Oops!')
     $('.modal-body').text('You are not authorized to view users.')
@@ -237,7 +248,7 @@ const displayAllUsersFailure = function () {
 }
 
 const userEditForm = function () {
-  console.log('display userEditForm')
+ //console.log('display userEditForm')
   $('#form-useredit').empty()
   const userEditFormHtml = editUser({ item: store.oneUser })
   // $('#form-menuitemcreate').hide()
@@ -251,7 +262,7 @@ const userEditForm = function () {
 }
 
 const onUpdateUserSuccess = function () {
-  console.log('onUpdateUserSuccess invoked:')
+ //console.log('onUpdateUserSuccess invoked:')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
@@ -259,7 +270,7 @@ const onUpdateUserSuccess = function () {
 }
 
 const onUpdateUserFailure = function () {
-  console.log('onUpdateUserFailure invoked:')
+ //console.log('onUpdateUserFailure invoked:')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Ooops!')
@@ -268,6 +279,7 @@ const onUpdateUserFailure = function () {
 
 // Clear all views
 const clearView = function () {
+  $('#def-navbar').hide()
   $('#menu-itemview').hide()
   $('#form-menuitemedit').hide()
   $('#form-menuitemcreate').hide()
@@ -280,14 +292,15 @@ const clearView = function () {
 }
 
 const orderStatusUpdate = function () {
-  console.log('orderStatusUpdate invoked:')
+ //console.log('orderStatusUpdate invoked:')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')
-  $('.modal-body').text('Your order has been processed!!  Nah...just kidding...this feature is still in development.  Maybe don\'t be so anti-social and go out eat for now? ;)')
+  $('.modal-body').text('Your order has been processed!!  Nah...just kidding...this feature is still in development.  Maybe don\'t be so anti-social and just go out to eat for now? ;)')
 }
 
 module.exports = {
+  showHomeScreen,
   showSignUpForm,
   onSignUpSuccess,
   onSignUpFailure,
