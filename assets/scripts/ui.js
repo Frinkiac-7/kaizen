@@ -81,6 +81,7 @@ const onSignOutSuccess = function () {
   clearView()
   $('#navbar').hide()
   $('#usr-navbar').hide()
+  $('#def-navbar').show()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Goodbye!')
   $('.modal-body').text('You have successfully logged out.  Thank you for using Kaizen.')
