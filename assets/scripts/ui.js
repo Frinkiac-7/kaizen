@@ -14,6 +14,7 @@ const showHomeScreen = function () {
   clearView()
   $('#form-signin').hide()
   $('#form-signup').hide()
+  $('#def-navbar').show()
   $('#btn-div').show()
 }
 

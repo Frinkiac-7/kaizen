@@ -22,7 +22,7 @@ $(() => {
   $('#btn-signin-submit').on('submit', events.signIn)
   $('#def-navbar-signin').on('click', ui.showSignInForm)
   $('#def-navbar-signup').on('click', ui.showSignUpForm)
-  // $('#def-navbar-home').on('click', ui.showHomeScreen)
+  $('#def-navbar-home').on('click', ui.showHomeScreen)
   $('#def-navbar-userhome').on('click', ui.showHomeScreen)
   $('#btn-menuitemedit-submit').on('click', events.updateMenuItem)
   $('#btn-menuitemcreate-submit').on('submit', events.createMenuItem)
