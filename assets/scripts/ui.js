@@ -12,10 +12,29 @@ const editUser = require('./templates/user-edit-acct.handlebars')
 const showHomeScreen = function () {
  //console.log('ui.showHomeScreen invoked:')
   clearView()
-  $('#form-signin').hide()
-  $('#form-signup').hide()
+  // $('#form-signin').hide()
+  // $('#form-signup').hide()
   $('#def-navbar').show()
   $('#btn-div').show()
+}
+
+const showAdminHomeScreen = function () {
+ //console.log('ui.showHomeScreen invoked:')
+  clearView()
+  // $('#form-signin').hide()
+  // $('#form-signup').hide()
+  $('#navbar').show()
+  // $('#btn-div').show()
+}
+
+
+const showUserHomeScreen = function () {
+ //console.log('ui.showHomeScreen invoked:')
+  clearView()
+  // $('#form-signin').hide()
+  // $('#form-signup').hide()
+  // $('#navbar').show()
+  // $('#btn-div').show()
 }
 
 const showSignUpForm = function () {
@@ -303,6 +322,8 @@ const orderStatusUpdate = function () {
 
 module.exports = {
   showHomeScreen,
+  showAdminHomeScreen,
+  showUserHomeScreen,
   showSignUpForm,
   onSignUpSuccess,
   onSignUpFailure,

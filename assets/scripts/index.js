@@ -24,6 +24,8 @@ $(() => {
   $('#def-navbar-signup').on('click', ui.showSignUpForm)
   $('#def-navbar-home').on('click', ui.showHomeScreen)
   $('#def-navbar-userhome').on('click', ui.showHomeScreen)
+  $('#navbar-adminhome').on('click', ui.showAdminHomeScreen)
+  $('#usr-navbar-userhome').on('click', ui.showUserHomeScreen)
   $('#btn-menuitemedit-submit').on('click', events.updateMenuItem)
   $('#btn-menuitemcreate-submit').on('submit', events.createMenuItem)
   $('#navbar-menuitemsview').on('click', events.getMenuItems)
