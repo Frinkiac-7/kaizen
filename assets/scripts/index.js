@@ -20,6 +20,7 @@ $(() => {
   $('#btn-signin').click(ui.showSignInForm)
   $('#btn-signup-submit').on('submit', events.signUp)
   $('#btn-signin-submit').on('submit', events.signIn)
+  // $('#signup-cancel').on('submit', events.showHomeScreen)
   $('#def-navbar-signin').on('click', ui.showSignInForm)
   $('#def-navbar-signup').on('click', ui.showSignUpForm)
   $('#def-navbar-home').on('click', ui.showHomeScreen)
@@ -44,7 +45,7 @@ $(() => {
   $('body').on('click', '.usrdel', events.extractId)
   $('#navbar-viewusers').on('click', events.viewUsers)
   $('#navbar-createusers').on('click', () => {
-   //console.log('createusers click worked')
+   console.log('createusers click worked')
   })
   $('body').on('submit', '#btn-useredit-submit', events.updateUser)
   $('body').on('submit', '.order', events.updateUser)

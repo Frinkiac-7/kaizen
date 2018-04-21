@@ -9,21 +9,21 @@ const getFormFields = require('../../lib/get-form-fields')
 
 const signUp = function (event) {
   event.preventDefault()
-  //console.log('signUp invoked')
+  console.log('signUp invoked')
   const userForm = getFormFields(this)
   api.signUp(userForm)
     .then(ui.onSignUpSuccess)
     .then(() => {
-      //console.log('user is', store.user)
+      console.log('user is', store.user)
     })
     .catch(ui.onSignUpFailure)
 }
 
 const signIn = function () {
   event.preventDefault()
-  //console.log('events.signIn invoked')
+  console.log('events.signIn invoked')
   const userForm = getFormFields(this)
-  //console.log('userForm in signIn is', userForm)
+  console.log('userForm in signIn is', userForm)
   api.signIn(userForm)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -31,7 +31,7 @@ const signIn = function () {
 
 const changePassword = function () {
   event.preventDefault()
-  //console.log('changePassword link clicked')
+  console.log('changePassword link clicked')
   const userForm = getFormFields(this)
   api.changePassword(userForm)
     .then(ui.onChangePasswordSuccess)
@@ -40,7 +40,7 @@ const changePassword = function () {
 
 const signOut = function () {
   event.preventDefault()
-  //console.log('signOut link clicked')
+  console.log('signOut link clicked')
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
@@ -50,7 +50,7 @@ const signOut = function () {
 
 const getMenuItems = function () {
   event.preventDefault()
-  //console.log('events.getMenuItems invoked')
+  console.log('events.getMenuItems invoked')
   // $('#form-menuitemcreate').hide()
   api.getMenuItems()
     .then(ui.displayMenuItems)
@@ -59,9 +59,9 @@ const getMenuItems = function () {
 
 const createMenuItem = function (event) {
   event.preventDefault()
-  //console.log('events.createMenuItem invoked')
+  console.log('events.createMenuItem invoked')
   const userForm = getFormFields(this)
-  //console.log('userForm is', userForm)
+  console.log('userForm is', userForm)
   api.createMenuItem(userForm)
     .then(ui.onCreateMenuItemSuccess)
     .catch(ui.onCreateMenuItemFailure)
@@ -73,39 +73,39 @@ const extractId = function () {
   const id = element.split('-')
   const item = id[0]
   const btn = id[1]
-  //console.log('the item is', item)
+  console.log('the item is', item)
   store.item = item
   if (btn === 'edt') {
-    //console.log('extractId: button clicked was edit')
+    console.log('extractId: button clicked was edit')
     api.getMenuItem(store.item)
       .then(ui.editItemForm)
       .catch(ui.onEditItemFailure)
   } else if (btn === 'del') {
-   //console.log('extractId: button clicked was', btn)
+   console.log('extractId: button clicked was', btn)
     api.deleteItem()
       .then(ui.onDeleteItemSuccess)
       .catch(ui.onDeleteItemFailure)
   } else if (btn === 'order') {
-   //console.log('extractId: button clicked was order')
+   console.log('extractId: button clicked was order')
     ui.orderStatusUpdate()
     // api.orderItem()
     //   .then(ui.onOrderItemSuccess)
     //   .catch(ui.onOrderItemFailure)
   } else if (btn === 'usredt') {
     store.id = item
-   //console.log('extractId: button clicked was', btn)
+   console.log('extractId: button clicked was', btn)
     api.getUserInfo(store.id)
       .then(ui.userEditForm)
       // .catch(ui.userEditFailure)
   } else if (btn === 'usrdel') {
-   //console.log('extractId: button clicked was', btn)
+   console.log('extractId: button clicked was', btn)
   }
 }
 
 const updateMenuItem = function () {
   event.preventDefault()
   const userForm = getFormFields(this)
-  //console.log('updateMenuItem: userForm is', userForm)
+  console.log('updateMenuItem: userForm is', userForm)
   api.updateMenuItem(userForm)
     .then(ui.onEditItemSuccess)
     .catch(ui.onEditItemFailure)
@@ -117,7 +117,7 @@ const updateMenuItem = function () {
 
 const viewUsers = function () {
   event.preventDefault()
- //console.log('events.viewUsers invoked:')
+ console.log('events.viewUsers invoked:')
   api.getAllUsers()
     .then(ui.displayAllUsers)
     .catch(ui.displayAllUsersFailure)
@@ -125,9 +125,9 @@ const viewUsers = function () {
 
 const updateUser = function (event) {
   event.preventDefault()
- //console.log('submit user update')
+ console.log('submit user update')
   const userForm = getFormFields(this)
- //console.log('updateUser: userForm is', userForm)
+ console.log('updateUser: userForm is', userForm)
   api.updateUser(userForm)
     .then(ui.onUpdateUserSuccess)
     .catch(ui.onUpdateUserFailure)
