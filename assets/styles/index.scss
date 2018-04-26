@@ -1,18 +1,30 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Gugi|Lato:900');
 
 .app-title {
-  // background: gray;
-  // border-style: solid;
-  // color: white;
+  background: rgba(0, 0, 0, 0.55);
+  border-color: yellow;
+  border-radius: 40px;
+  border-style: solid;
+  color: white;
+  font-family: 'Gugi', cursive;
   text-align: center;
 }
 
-// body {
-//   background: url('https://imgur.com/45uXhpz.jpg') no-repeat center center fixed;
-//   background-size: cover;
-//   height: 100vh;
-//   padding-top: 50px;
-//   text-align: center;
-//   width: 100vw;
-// }
+body {
+  background: url('../img/bg-unsplash-sushi.jpg') no-repeat center center fixed;
+  background-size: cover;
+  // color: white;
+  // font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+.p {
+  // font-size: 24px;
+}
+
+.row {
+  margin: auto;
+  margin-bottom: 20px;
+}

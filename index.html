@@ -12,248 +12,258 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <div class="row container">
+        <!-- Default navbar section begins here -->
+        <nav id="def-navbar" class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a id="def-navbar-home" class="navbar-brand" href="#"> Home </a>
+            </div>
 
-      <!-- Admin navbar section begins here -->
-      <nav id="def-navbar" class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a id="def-navbar-home" class="navbar-brand" href="#"> Home </a>
-          </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav navbar-right">
+                <li id="def-navbar-signup"><a href="#"> Sign Up </a></li>
+                <li id="def-navbar-signin"><a href="#"> Sign In </a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <!-- Default navbar section ends here -->
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-            <ul class="nav navbar-nav navbar-right">
-              <li id="def-navbar-signup"><a href="#"> Sign Up </a></li>
-              <li id="def-navbar-signin"><a href="#"> Sign In </a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-      <!-- Admin navbar section ends here -->
+        <!-- Admin navbar section begins here -->
+        <nav id="navbar" class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a id="navbar-adminhome" class="navbar-brand" href="#">Admin Menu Home</a>
+            </div>
 
-      <!-- Admin navbar section begins here -->
-      <nav id="navbar" class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a id="navbar-adminhome" class="navbar-brand" href="#">Admin Menu Home</a>
-          </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Menu Mgmt <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li id="navbar-menuitemsview"><a href="#"> View/Edit Items </a></li>
+                    <li id="navbar-menuitemcreate"><a href="#"> Create Items </a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> User Mgmt <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li id="navbar-viewusers"><a href="#"> View/Edit Users </a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li id="navbar-changepassword"><a href="#"> Change Password </a></li>
+                <li id="navbar-signout"><a href="#"> Sign Out </a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <!-- Admin navbar section ends here -->
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Menu Mgmt <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li id="navbar-menuitemsview"><a href="#"> View/Edit Items </a></li>
-                  <li id="navbar-menuitemcreate"><a href="#"> Create Items </a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> User Mgmt <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li id="navbar-viewusers"><a href="#"> View/Edit Users </a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li id="navbar-changepassword"><a href="#"> Change Password </a></li>
-              <li id="navbar-signout"><a href="#"> Sign Out </a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-      <!-- Admin navbar section ends here -->
+        <!-- User navbar section begins here -->
+        <nav id="usr-navbar" class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a id="usr-navbar-userhome" class="navbar-brand" href="#"> User Menu Home </a>
+            </div>
 
-      <!-- User navbar section begins here -->
-      <nav id="usr-navbar" class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a id="usr-navbar-userhome" class="navbar-brand" href="#"> User Menu Home </a>
-          </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li id="usr-navbar-menuitemsview" class="active"><a href="#"> View Menu Items <span class="sr-only">(current)</span></a></li>
+                <!-- <li id="cart"><a> Cart </a></li> -->
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li id="usr-navbar-changepassword"><a href="#"> Change Password </a></li>
+                <li id="usr-navbar-signout"><a href="#"> Sign Out </a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <!-- User navbar section ends here -->
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li id="usr-navbar-menuitemsview" class="active"><a href="#"> View Menu Items <span class="sr-only">(current)</span></a></li>
-              <!-- <li id="cart"><a> Cart </a></li> -->
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li id="usr-navbar-changepassword"><a href="#"> Change Password </a></li>
-              <li id="usr-navbar-signout"><a href="#"> Sign Out </a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-      <!-- User navbar section ends here -->
-
-      <!-- App title div starts -->
-       <div class="app-title" class="row">
-         <div class="col-xs-12 col-md-12">
-           <h1> Kaizen Menu Manager </h1>
+        <!-- App title div starts -->
+         <div class="row">
+           <div class="col-xs-12 col-md-2"></div>
+           <div class="app-title col-xs-12 col-md-8">
+             <h1> Kaizen Menu Manager </h1>
+             <p> The menu management system for restauranteurs </p>
+             <div id="btn-div" class="row">
+               <div class="col-xs-3 col-md-3"></div>
+               <div class="col-xs-3 col-md-3">
+                 <button id="btn-signup" class="btn btn-primary"> Sign-up </button>
+               </div>
+               <div class="col-xs-3 col-md-3">
+                 <button id="btn-signin" class="btn btn-primary"> Sign-in </button>
+               </div>
+               <div class="col-xs-3 col-md-3"></div>
+             </div>
+           </div>
+           <!-- <div class="col-xs-12 col-md-2"></div> -->
          </div>
-         <div class="col-xs-12 col-md-12">
-           <p> The menu management system for restauranteurs </p>
-         </div>
-       </div>
-       <!-- App title div ends -->
+         <!-- App title div ends -->
 
-      <!-- User login/sign-up buttons start -->
-      <div id="btn-div" class="app-title row">
-        <div class="col-xs-3 col-md-3"></div>
-        <div class="col-xs-3 col-md-3">
-          <button id="btn-signup" class="btn btn-primary"> Sign-up </button>
+        <!-- User login/sign-up buttons start -->
+        <!-- <div id="btn-div" class="row">
+          <div class="col-xs-3 col-md-3"></div>
+          <div class="col-xs-3 col-md-3">
+            <button id="btn-signup" class="btn btn-primary"> Sign-up </button>
+          </div>
+          <div class="col-xs-3 col-md-3">
+            <button id="btn-signin" class="btn btn-primary"> Sign-in </button>
+          </div>
+          <div class="col-xs-3 col-md-3"></div>
+        </div> -->
+        <!-- User login/sign-up buttons ends -->
+
+        <!-- Sign-up form div starts -->
+        <div class="row" id="form-signup">
+          <div class="col-xs-12 col-md-4"></div>
+          <div class="app-title col-xs-12 col-md-4">
+            <h3> Sign-up </h3>
+            <form id="btn-signup-submit">
+              <div class="form-group">
+                <label for="emailAddress">Email address</label>
+                <input name="credentials[email]" type="email" class="form-control" placeholder="Enter your email address">
+                <label for="password">Password</label>
+                <input name="credentials[password]" type="password" class="form-control" placeholder="Enter your password">
+                <label for="passwordConfirmation">Password</label>
+                <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm your password">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-xs-12 col-md-4"></div>
         </div>
-        <div class="col-xs-3 col-md-3">
-          <button id="btn-signin" class="btn btn-primary"> Sign-in </button>
+        <!-- Sign-up form div ends -->
+
+        <!-- Sign-in form div starts -->
+        <div class="row" id="form-signin">
+          <div class="col-xs-12 col-md-4"></div>
+          <div class="app-title col-xs-12 col-md-4">
+            <h3> Sign In </h3>
+            <form id="btn-signin-submit">
+              <div class="form-group">
+                <label for="emailAddress">Email address</label>
+                <input name="credentials[email]" type="email" class="form-control" placeholder="name@email.com">
+                <label for="password">Password</label>
+                <input name="credentials[password]" type="password" class="form-control" placeholder="Enter your password">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-xs-12 col-md-4"></div>
         </div>
-        <div class="col-xs-3 col-md-3"></div>
-      </div>
-      <!-- User login/sign-up buttons ends -->
+        <!-- Sign-in form div ends -->
 
-      <!-- Sign-up form div starts -->
-      <div class="row" id="form-signup">
-        <div class="col-xs-12 col-md-4"></div>
-        <div class="col-xs-12 col-md-4">
-          <h3> Sign-up </h3>
-          <form id="btn-signup-submit">
-            <div class="form-group">
-              <label for="emailAddress">Email address</label>
-              <input name="credentials[email]" type="email" class="form-control" placeholder="Enter your email address">
-              <label for="password">Password</label>
-              <input name="credentials[password]" type="password" class="form-control" placeholder="Enter your password">
-              <label for="passwordConfirmation">Password</label>
-              <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm your password">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
+        <!-- Change password form div starts -->
+        <div class="row" id="form-changepassword">
+          <div class="col-xs-12 col-md-4"></div>
+          <div class="col-xs-12 col-md-4">
+            <h3> Change Password </h3>
+            <form id="btn-changepw-submit">
+              <div class="form-group">
+                <label for="password"> Current Password </label>
+                <input name="passwords[old]" type="password" class="form-control" placeholder="Enter your password">
+                <label for="password"> New Password </label>
+                <input name="passwords[new]" type="password" class="form-control" placeholder="Confirm your password">
+                <!-- <label for="passwordConfirmation"> New Password Confirmation </label>
+                <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm your password"> -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-xs-12 col-md-4"></div>
         </div>
-        <div class="col-xs-12 col-md-4"></div>
-      </div>
-      <!-- Sign-up form div ends -->
+        <!-- Change password form div ends -->
 
-      <!-- Sign-in form div starts -->
-      <div class="row" id="form-signin">
-        <div class="col-xs-12 col-md-4"></div>
-        <div class="col-xs-12 col-md-4">
-          <h3> Sign In </h3>
-          <form id="btn-signin-submit">
-            <div class="form-group">
-              <label for="emailAddress">Email address</label>
-              <input name="credentials[email]" type="email" class="form-control" placeholder="Enter your email address">
-              <label for="password">Password</label>
-              <input name="credentials[password]" type="password" class="form-control" placeholder="Enter your password">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
+        <!-- Menu items display start -->
+        <div  id="menu-itemview" class="table">
         </div>
-        <div class="col-xs-12 col-md-4"></div>
-      </div>
-      <!-- Sign-in form div ends -->
+        <!-- Menu items display ends -->
 
-      <!-- Change password form div starts -->
-      <div class="row" id="form-changepassword">
-        <div class="col-xs-12 col-md-4"></div>
-        <div class="col-xs-12 col-md-4">
-          <h3> Change Password </h3>
-          <form id="btn-changepw-submit">
-            <div class="form-group">
-              <label for="password"> Current Password </label>
-              <input name="passwords[old]" type="password" class="form-control" placeholder="Enter your password">
-              <label for="password"> New Password </label>
-              <input name="passwords[new]" type="password" class="form-control" placeholder="Confirm your password">
-              <!-- <label for="passwordConfirmation"> New Password Confirmation </label>
-              <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm your password"> -->
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
+        <!-- Menu items create start -->
+        <div class="row" id="form-menuitemcreate">
+          <div class="col-xs-12 col-md-4"></div>
+          <div class="col-xs-12 col-md-4">
+            <h3> Create Menu Item </h3>
+            <form id="btn-menuitemcreate-submit">
+              <div class="form-group">
+                <label for="itemName"> Item Name </label>
+                <input name="item[name]" type="text" class="form-control" placeholder="Name to display on menu">
+                <label for="itemDescription"> Item Description </label>
+                <input name="item[description]" type="text" class="form-control" placeholder="Describe the item">
+                <label for="itemPrice"> Item Price </label>
+                <input name="item[price]" type="number" step=".01" class="form-control" placeholder="Price for item">
+                <label for="itemCategory"> Item Category </label>
+                <input name="item[category]" type="text" class="form-control" placeholder="Entree, appetizer, etc.">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-xs-12 col-md-4"></div>
         </div>
-        <div class="col-xs-12 col-md-4"></div>
-      </div>
-      <!-- Change password form div ends -->
+        <!-- Menu items create ends -->
 
-      <!-- Menu items display start -->
-      <div  id="menu-itemview" class="table">
-      </div>
-      <!-- Menu items display ends -->
-
-      <!-- Menu items create start -->
-      <div class="row" id="form-menuitemcreate">
-        <div class="col-xs-12 col-md-4"></div>
-        <div class="col-xs-12 col-md-4">
-          <h3> Create Menu Item </h3>
-          <form id="btn-menuitemcreate-submit">
-            <div class="form-group">
-              <label for="itemName"> Item Name </label>
-              <input name="item[name]" type="text" class="form-control" placeholder="Name to display on menu">
-              <label for="itemDescription"> Item Description </label>
-              <input name="item[description]" type="text" class="form-control" placeholder="Describe the item">
-              <label for="itemPrice"> Item Price </label>
-              <input name="item[price]" type="number" step=".01" class="form-control" placeholder="Price for item">
-              <label for="itemCategory"> Item Category </label>
-              <input name="item[category]" type="text" class="form-control" placeholder="Entree, appetizer, etc.">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
+        <!-- Menu item edit starts -->
+        <div class="row" id="form-menuitemedit">
         </div>
-        <div class="col-xs-12 col-md-4"></div>
+        <!-- Menu item edit ends -->
+
+        <!-- View all users start -->
+        <div  id="users-viewall" class="table">
+        </div>
+        <!-- View all users ends -->
+
+        <!-- User edit starts -->
+        <div class="row" id="form-useredit">
+        </div>
+        <!-- User edit ends -->
+
+        <!-- Notification modal starts -->
+        <div id="modal-notification" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- Notification modal ends -->
       </div>
-      <!-- Menu items create ends -->
-
-      <!-- Menu item edit starts -->
-      <div class="row" id="form-menuitemedit">
-      </div>
-      <!-- Menu item edit ends -->
-
-      <!-- View all users start -->
-      <div  id="users-viewall" class="table">
-      </div>
-      <!-- View all users ends -->
-
-      <!-- User edit starts -->
-      <div class="row" id="form-useredit">
-      </div>
-      <!-- User edit ends -->
-
-      <!-- Notification modal starts -->
-      <div id="modal-notification" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-              <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
-      <!-- Notification modal ends -->
-
     </body>
 </html>
