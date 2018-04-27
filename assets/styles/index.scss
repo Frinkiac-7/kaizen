@@ -9,6 +9,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   border-style: solid;
   color: white;
   font-family: 'Gugi', cursive;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -17,12 +18,8 @@ body {
   background-size: cover;
   // color: white;
   // font-family: 'Lato', sans-serif;
-  overflow: scroll;
+  // overflow: scroll;
   text-align: center;
-}
-
-.p {
-  // font-size: 24px;
 }
 
 .row {

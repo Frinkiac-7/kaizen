@@ -6,8 +6,6 @@ const store = require('./store')
 // User-related functions
 
 const signUp = function (data) {
-  console.log('data is', data)
-  console.log('config.apiUrls is', config.apiUrl)
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -23,7 +21,6 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  console.log('api.signIn invoked')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -32,7 +29,6 @@ const signIn = function (data) {
     },
     success: function (data) {
       store.user = data.user
-      console.log('data is', data)
       return data
     },
     data
@@ -65,7 +61,6 @@ const changePassword = function (data) {
 // Items-related functions
 
 const getMenuItems = function () {
-  console.log('api.getMenuItems invoked')
   return $.ajax({
     url: config.apiUrl + '/items',
     method: 'GET',
@@ -74,18 +69,13 @@ const getMenuItems = function () {
       Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
-     console.log('inside success thingy of getMenuItems: data is', data)
       store.menuItems = data
-     console.log('inside success thingy of getMenuItems: store.menuItems is', store.menuItems)
       return data
     }
   })
 }
 
 const createMenuItem = function (data) {
-  console.log('api.createMenuItem invoked')
-  console.log('data is', data)
-  console.log('store.user is', store.user)
   return $.ajax({
     url: config.apiUrl + '/items',
     method: 'POST',
@@ -102,7 +92,6 @@ const createMenuItem = function (data) {
 }
 
 const getMenuItem = function (item) {
-  console.log('api.getMenuItem invoked')
   return $.ajax({
     url: config.apiUrl + '/items/' + item,
     method: 'GET',
@@ -112,17 +101,12 @@ const getMenuItem = function (item) {
     },
     success: function (data) {
       store.oneItem = data.item
-      console.log('api.getMenuItem: store.oneItem is', store.oneItem)
-      console.log('api.getMenuItem: store.oneItem.name is', store.oneItem.name)
-      console.log('data is', data)
       return data
     }
   })
 }
 
 const deleteItem = function () {
-  // event.preventDefault()
- console.log('api.deleteItem: item is', store.item)
   return $.ajax({
     url: config.apiUrl + '/items/' + store.item,
     method: 'DELETE',
@@ -130,7 +114,6 @@ const deleteItem = function () {
       Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
-      console.log('success thing invoked. data is', data)
       return data
       // return data
     }
@@ -138,9 +121,6 @@ const deleteItem = function () {
 }
 
 const updateMenuItem = function (data) {
-  console.log('api.updateMenuItem:  data is', data)
-  console.log('api.updateMenuItem:  data.id is', data.id)
-  console.log('api.updateMenuItem:  store.item is', store.item)
   return $.ajax({
     url: config.apiUrl + '/items/' + store.item,
     method: 'PATCH',
@@ -164,7 +144,6 @@ const getAllUsers = function () {
       Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
-     console.log('data is', data)
       store.allUsers = data.users
       return data
     }
@@ -180,19 +159,13 @@ const getUserInfo = function (item) {
       Authorization: 'Token token=' + store.user.token
     },
     success: function (data) {
-     console.log('data is', data)
-     console.log('user admin access status is', store.user.isadmin)
       store.oneUser = data.user
-     console.log('store.oneUser is', store.oneUser)
       return data
     }
   })
 }
 
 const updateUser = function (data) {
- console.log('api.updateUser:  data is', data)
- console.log('api.updateUser:  data.id is', data.id)
- console.log('api.updateUser:  store.id is', store.id)
   return $.ajax({
     url: config.apiUrl + '/users/' + store.id,
     method: 'PATCH',
