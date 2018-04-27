@@ -107,6 +107,9 @@ const getMenuItem = function (item) {
 }
 
 const deleteItem = function () {
+  console.log('api.deleteItem url looks like this:')
+  console.log(`url: ${config.apiUrl} + '/items/' + ${store.item}
+`)
   return $.ajax({
     url: config.apiUrl + '/items/' + store.item,
     method: 'DELETE',
@@ -115,7 +118,6 @@ const deleteItem = function () {
     },
     success: function (data) {
       return data
-      // return data
     }
   })
 }

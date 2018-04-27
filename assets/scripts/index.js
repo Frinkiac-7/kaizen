@@ -37,6 +37,7 @@ $(() => {
   $('body').on('click', '.edit', events.extractId)
   $('body').on('click', '.order', events.extractId)
   $('body').on('click', '.delete', events.extractId)
+  $('body').on('click', '#delete', events.deleteItemConfirmed)
   $('body').on('submit', '#btn-menuitemedit-submit', events.updateMenuItem)
   $('body').on('click', '.usredt', events.extractId)
   $('body').on('click', '.usrdel', events.extractId)

@@ -62,15 +62,17 @@ const extractId = function () {
   const id = element.split('-')
   const item = id[0]
   const btn = id[1]
+  console.log('item is', item)
+  console.log('btn is', btn)
   store.item = item
   if (btn === 'edt') {
     api.getMenuItem(store.item)
       .then(ui.editItemForm)
       .catch(ui.onEditItemFailure)
   } else if (btn === 'del') {
-    api.deleteItem()
-      .then(ui.onDeleteItemSuccess)
-      .catch(ui.onDeleteItemFailure)
+    $('#modal-deleteconfirmation').modal('toggle')
+    $('.modal-title').text('Confirm Item Delete')
+    $('.modal-body').text('Are you sure you wish to delete this item?')
   } else if (btn === 'order') {
     ui.orderStatusUpdate()
     // api.orderItem()
@@ -83,7 +85,19 @@ const extractId = function () {
       // .catch(ui.userEditFailure)
   } else if (btn === 'usrdel') {
     console.log('extractId: button clicked was', btn)
+    // api.deleteItem()
+    //   .then(ui.onDeleteItemSuccess)
+    //   .catch(ui.onDeleteItemFailure)
   }
+}
+
+const deleteItemConfirmed = function () {
+  event.preventDefault()
+  console.log('item is', store.item)
+  console.log('deleteMenuItemConfirmed invoked')
+  api.deleteItem()
+    .then(ui.onDeleteItemSuccess)
+    .catch(ui.onDeleteItemFailure)
 }
 
 const updateMenuItem = function () {
@@ -121,6 +135,7 @@ module.exports = {
   getMenuItems,
   createMenuItem,
   extractId,
+  deleteItemConfirmed,
   updateMenuItem,
   viewUsers,
   updateUser
