@@ -17,6 +17,7 @@ body {
   background-size: cover;
   // color: white;
   // font-family: 'Lato', sans-serif;
+  overflow: scroll;
   text-align: center;
 }
 
@@ -27,4 +28,12 @@ body {
 .row {
   margin: auto;
   margin-bottom: 20px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+th {
+  text-align: center;
 }
