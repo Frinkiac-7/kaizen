@@ -107,11 +107,16 @@ const getMenuItem = function (item) {
 }
 
 const deleteItem = function () {
+  if (store.btn === 'del') {
+    store.url = '/items/'
+  } else if (store.btn === 'usrdel') {
+    store.url = '/users/'
+  }
+  console.log('store.url is', store.url)
   console.log('api.deleteItem url looks like this:')
-  console.log(`url: ${config.apiUrl} + '/items/' + ${store.item}
-`)
+  console.log(`url: ${config.apiUrl} + ${store.url} + ${store.item}`)
   return $.ajax({
-    url: config.apiUrl + '/items/' + store.item,
+    url: config.apiUrl + store.url + store.item,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

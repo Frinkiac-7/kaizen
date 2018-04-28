@@ -65,13 +65,14 @@ const extractId = function () {
   console.log('item is', item)
   console.log('btn is', btn)
   store.item = item
+  store.btn = btn
   if (btn === 'edt') {
     api.getMenuItem(store.item)
       .then(ui.editItemForm)
       .catch(ui.onEditItemFailure)
   } else if (btn === 'del') {
     $('#modal-deleteconfirmation').modal('toggle')
-    $('.modal-title').text('Confirm Item Delete')
+    $('.modal-title').text('Confirm Record Deletion')
     $('.modal-body').text('Are you sure you wish to delete this item?')
   } else if (btn === 'order') {
     ui.orderStatusUpdate()
@@ -84,17 +85,16 @@ const extractId = function () {
       .then(ui.userEditForm)
       // .catch(ui.userEditFailure)
   } else if (btn === 'usrdel') {
-    console.log('extractId: button clicked was', btn)
-    // api.deleteItem()
-    //   .then(ui.onDeleteItemSuccess)
-    //   .catch(ui.onDeleteItemFailure)
+    $('#modal-deleteconfirmation').modal('toggle')
+    $('.modal-title').text('Confirm Record Deletion')
+    $('.modal-body').text('Are you sure you wish to delete this user?')
   }
 }
 
 const deleteItemConfirmed = function () {
   event.preventDefault()
   console.log('item is', store.item)
-  console.log('deleteMenuItemConfirmed invoked')
+  console.log('deleteItemConfirmed invoked')
   api.deleteItem()
     .then(ui.onDeleteItemSuccess)
     .catch(ui.onDeleteItemFailure)

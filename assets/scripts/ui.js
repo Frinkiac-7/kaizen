@@ -57,6 +57,7 @@ const showSignInForm = function () {
 
 const onSignInSuccess = function () {
   $('#form-signin :input').prop('value', '')
+  console.log('store.user is', store.user)
   if (store.user.isadmin === true) {
     // clearView()
     clearView()
