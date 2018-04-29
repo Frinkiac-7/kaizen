@@ -43,7 +43,12 @@ $(() => {
   $('body').on('click', '.usrdel', events.extractId)
   $('#navbar-viewusers').on('click', events.viewUsers)
   $('#navbar-createuser').on('click', () => {
-   console.log('createuser click worked')
+    console.log('createuser click worked')
+    $('#form-signup').show()
+    $('.tgl-text').text('Create New User')
+    // $('.cancel').text('Click here to cancel')
+    $('.cancel').html(`<p>Click <a id="lnk-signup-cancel" href="#">here</a> to cancel and return to the main menu!</p>`)
+    $('body').on('click', '#lnk-signup-cancel', ui.showAdminHomeScreen)
   })
   $('body').on('submit', '#btn-useredit-submit', events.updateUser)
   $('body').on('submit', '.order', events.updateUser)
