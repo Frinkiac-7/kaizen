@@ -32,6 +32,7 @@ const showSignUpForm = function () {
 }
 
 const onSignUpSuccess = function () {
+  //console.log('store.user.token is', store.user.token)
   $('#form-signup :input').prop('value', '')
   clearView()
   $('#form-signin').show()
@@ -57,7 +58,7 @@ const showSignInForm = function () {
 
 const onSignInSuccess = function () {
   $('#form-signin :input').prop('value', '')
-  console.log('store.user is', store.user)
+  //console.log('store.user is', store.user)
   if (store.user.isadmin === true) {
     // clearView()
     clearView()
@@ -272,6 +273,7 @@ const clearView = function () {
 }
 
 const orderStatusUpdate = function () {
+  //console.log('orderStatusUpdate invoked')
   clearView()
   $('#modal-notification').modal('toggle')
   $('.modal-title').text('Success!')

@@ -8,6 +8,7 @@ const getFormFields = require('../../lib/get-form-fields')
 // User-related functions
 
 const signUp = function (event) {
+  //console.log('store.user.token is', store.user.token)
   event.preventDefault()
   const userForm = getFormFields(this)
   api.signUp(userForm)
@@ -62,8 +63,8 @@ const extractId = function () {
   const id = element.split('-')
   const item = id[0]
   const btn = id[1]
-  console.log('item is', item)
-  console.log('btn is', btn)
+  //console.log('item is', item)
+  //console.log('btn is', btn)
   store.item = item
   store.btn = btn
   if (btn === 'edt') {
@@ -75,7 +76,7 @@ const extractId = function () {
     $('.modal-title').text('Confirm Record Deletion')
     $('.modal-body').text('Are you sure you wish to delete this item?')
   } else if (btn === 'order') {
-    ui.orderStatusUpdate()
+      ui.orderStatusUpdate()
     // api.orderItem()
     //   .then(ui.onOrderItemSuccess)
     //   .catch(ui.onOrderItemFailure)
@@ -93,8 +94,8 @@ const extractId = function () {
 
 const deleteItemConfirmed = function () {
   event.preventDefault()
-  console.log('item is', store.item)
-  console.log('deleteItemConfirmed invoked')
+  //console.log('item is', store.item)
+  //console.log('deleteItemConfirmed invoked')
   api.deleteItem()
     .then(ui.onDeleteItemSuccess)
     .catch(ui.onDeleteItemFailure)
@@ -127,6 +128,16 @@ const updateUser = function (event) {
     .catch(ui.onUpdateUserFailure)
 }
 
+const createUser = function () {
+  //console.log('createuser click worked')
+  ui.clearView()
+  $('#form-signup').show()
+  $('.tgl-text').text('Create New User')
+  $('.cancel').text('Click here to cancel')
+  $('.cancel').html(`<p>Click <a id="lnk-signup-cancel" href="#">here</a> to cancel and return to the main menu!</p>`)
+  $('body').on('click', '#lnk-signup-cancel', ui.showAdminHomeScreen)
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -138,5 +149,6 @@ module.exports = {
   deleteItemConfirmed,
   updateMenuItem,
   viewUsers,
-  updateUser
+  updateUser,
+  createUser
 }

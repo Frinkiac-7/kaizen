@@ -112,9 +112,9 @@ const deleteItem = function () {
   } else if (store.btn === 'usrdel') {
     store.url = '/users/'
   }
-  console.log('store.url is', store.url)
-  console.log('api.deleteItem url looks like this:')
-  console.log(`url: ${config.apiUrl} + ${store.url} + ${store.item}`)
+  //console.log('store.url is', store.url)
+  //console.log('api.deleteItem url looks like this:')
+  //console.log(`url: ${config.apiUrl} + ${store.url} + ${store.item}`)
   return $.ajax({
     url: config.apiUrl + store.url + store.item,
     method: 'DELETE',
